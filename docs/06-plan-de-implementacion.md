@@ -85,7 +85,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T19 · Metadata por idioma**
   `generateMetadata` con title, description, canonical, `alternates.languages` (incluido `x-default`), Open Graph y Twitter. `metadataBase` desde `site.url`. `themeColor` en `export const viewport`.
   **Terminado:** el `<head>` de `/out/en/index.html` y de `/out/es/index.html` contiene canonical y hreflang recíprocos, y `<meta name="theme-color">`. Sin avisos de deprecación en el build.
-- [ ] **T20 · JSON-LD**
+- [x] **T20 · JSON-LD** — validado contra el vocabulario de schema.org y FAQ = texto visible; **pendiente:** Rich Results Test con la URL publicada (T24/T25)
   `lib/schema.ts`: `HomeAndConstructionBusiness` (con los dos `contactPoint` por idioma; sin `geo`, `priceRange` ni campos sin confirmar), `WebSite` y `FAQPage`.
   **Terminado:** el Rich Results Test y validator.schema.org no dan errores.
 - [ ] **T21 · `sitemap.ts` + `robots.ts`** (force-static, con alternates; excluye `/`, `page-not-found` y `styleguide`)

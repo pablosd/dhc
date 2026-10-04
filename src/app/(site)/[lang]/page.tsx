@@ -11,6 +11,7 @@ import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Marquee } from "@/components/ui/Marquee";
 import { getDictionary, hasLocale } from "@/lib/i18n";
+import { jsonLd, landingGraph } from "@/lib/schema";
 import { landingPaths, pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
@@ -27,6 +28,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]">) {
 
   return (
     <main id="main">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(landingGraph(lang)) }} />
       <Hero lang={lang} />
       <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
       <Services lang={lang} />
