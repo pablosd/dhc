@@ -345,6 +345,8 @@ const es: Dictionary = {
       error: "Algo salió mal. Llámanos al {phone}.",
       consent:
         "Al enviar este formulario aceptas que DHC te contacte por teléfono, mensaje de texto o correo sobre tu proyecto. Nunca compartimos tu información.", // TODO J4
+      consentNoText:
+        "Al enviar este formulario aceptas que DHC te contacte por teléfono o correo sobre tu proyecto. Nunca compartimos tu información.",
     },
     validation: {
       required: "Completa este campo.",

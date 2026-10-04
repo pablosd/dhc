@@ -292,7 +292,9 @@ Se renderizan con `<details>` y se emite el schema `FAQPage` (ver `05`). Las pre
 | form.error | Something went wrong. Please call us at {phone}. | Algo salió mal. Llámanos al {phone}. |
 | form.consent **[TODO J4]** | By sending this form, you agree that DHC may contact you by phone, text message or email about your project. We never share your information. | Al enviar este formulario aceptas que DHC te contacte por teléfono, mensaje de texto o correo sobre tu proyecto. Nunca compartimos tu información. |
 
-Las opciones de "Tipo de proyecto" son los títulos de los 8 servicios (sección 4) más `form.projectTypeOther`. Si `J4` dice que no se envían mensajes de texto, se quita "text message" / "mensaje de texto" del aviso.
+| form.consentNoText | By sending this form, you agree that DHC may contact you by phone or email about your project. We never share your information. | Al enviar este formulario aceptas que DHC te contacte por teléfono o correo sobre tu proyecto. Nunca compartimos tu información. |
+
+Las opciones de "Tipo de proyecto" son los títulos de los 8 servicios (sección 4) más `form.projectTypeOther`. Si `J4` dice que no se envían mensajes de texto (`site.claims.textMessages = false`), se usa `form.consentNoText`.
 
 ### Mensajes de validación
 

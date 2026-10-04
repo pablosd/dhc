@@ -1706,3 +1706,161 @@ body:not(:has(.hero)) .site-header {
     }
   }
 }
+
+/* ---------- Contacto / estimado (docs/04 §11) ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+
+@media (max-width: 860px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.estimate-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .estimate-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.estimate-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.estimate-form small {
+  font-weight: 400;
+  color: var(--color-stone);
+}
+
+.estimate-form input:not([type="checkbox"]),
+.estimate-form select,
+.estimate-form textarea {
+  min-height: 48px;
+  padding: 0.75em 0.85em;
+  border: 1px solid rgb(247 241 232 / 0.25);
+  border-radius: 3px;
+  background: rgb(247 241 232 / 0.05);
+  color: var(--color-cream);
+  font: inherit;
+  font-weight: 400;
+}
+
+.estimate-form select option {
+  color: var(--color-ink);
+}
+
+.estimate-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.estimate-form input::placeholder,
+.estimate-form textarea::placeholder {
+  color: rgb(247 241 232 / 0.55);
+}
+
+.estimate-form :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-glow);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: grid;
+  justify-items: start;
+  gap: 0.7rem;
+}
+
+.form-actions .btn[disabled] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.form-consent {
+  max-width: 60ch;
+  color: var(--color-stone);
+  font-size: 0.8rem;
+}
+
+.form-error a {
+  color: var(--color-glow);
+  font-weight: 600;
+}
+
+.form-success {
+  align-self: start;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid rgb(242 182 109 / 0.35);
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--color-glow);
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.contact-lines {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.line-card {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid rgb(242 182 109 / 0.25);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+a.line-card:hover {
+  border-color: var(--color-glow);
+}
+
+.line-card-label {
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-glow);
+}
+
+.line-card-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}

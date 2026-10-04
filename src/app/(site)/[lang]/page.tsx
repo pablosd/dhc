@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/About";
 import { Areas } from "@/components/sections/Areas";
+import { Contact } from "@/components/sections/Contact";
 import { Faq } from "@/components/sections/Faq";
 import { Hero } from "@/components/sections/Hero";
 import { Process } from "@/components/sections/Process";
@@ -27,6 +28,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]">) {
       <Reviews lang={lang} />
       <Areas lang={lang} />
       <Faq lang={lang} />
+      <Contact lang={lang} />
     </main>
   );
 }

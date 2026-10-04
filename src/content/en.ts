@@ -348,6 +348,8 @@ const en = {
       error: "Something went wrong. Please call us at {phone}.",
       consent:
         "By sending this form, you agree that DHC may contact you by phone, text message or email about your project. We never share your information.", // TODO J4
+      consentNoText:
+        "By sending this form, you agree that DHC may contact you by phone or email about your project. We never share your information.",
     },
     validation: {
       required: "Please fill out this field.",
