@@ -303,7 +303,7 @@ python3 ~/Project/TTrack/tools/cf_dns.py add stats A 152.53.39.211 --no-proxy
 dig +short @1.1.1.1 stats.psalazar.dev A
 ```
 
-En el repo, descomenta el bloque `stats.psalazar.dev { … }` al final de `deploy/caddy/dhc.caddy` (o pídemelo) y repite el paso 3.4 (copiar, `validate`, `reload`).
+El bloque `stats.psalazar.dev { … }` ya está activo en `deploy/caddy/dhc.caddy` (4 oct 2026); repite el paso 3.4 (copiar, `validate`, `reload`).
 
 ### 5.4 · Primer acceso y alta del sitio
 

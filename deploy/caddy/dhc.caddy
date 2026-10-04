@@ -72,9 +72,9 @@ dhc.psalazar.dev {
 	}
 }
 
-# Analítica (Umami en Docker, publicado solo en 127.0.0.1:3001). Descomentar
-# cuando Umami esté levantado y exista el registro DNS `stats` (guía docs/08).
-# stats.psalazar.dev {
-# 	encode zstd gzip
-# 	reverse_proxy 127.0.0.1:3001
-# }
+# Analítica: Umami en Docker, publicado solo en 127.0.0.1:3001 (guía docs/08).
+stats.psalazar.dev {
+	encode zstd gzip
+	import dhc_security_headers
+	reverse_proxy 127.0.0.1:3001
+}
