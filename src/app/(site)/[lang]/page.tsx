@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
+import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
 import { Marquee } from "@/components/ui/Marquee";
 import { getDictionary, hasLocale } from "@/lib/i18n";
@@ -17,6 +18,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]">) {
       <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
       <Services lang={lang} />
       <About lang={lang} />
+      <Process lang={lang} />
     </main>
   );
 }

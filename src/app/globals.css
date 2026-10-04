@@ -1108,3 +1108,123 @@ body:not(:has(.hero)) .site-header {
   color: var(--color-muted);
   font-weight: 600;
 }
+
+/* ---------- Proceso: la cocina que se arma (docs/03 → Firma) ---------- */
+
+.story {
+  position: relative;
+}
+
+.story-stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.story-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 50% at 50% 30%, rgb(242 182 109 / var(--halo, 0.16)), transparent 70%);
+}
+
+.story-svg {
+  position: relative;
+  width: min(1100px, 96vw);
+  height: auto;
+  max-height: 86vh;
+}
+
+.story-hud {
+  position: absolute;
+  top: calc(var(--header-h) + 1rem);
+  left: max(20px, calc((100vw - var(--container-site)) / 2 + 32px));
+  z-index: 2;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.story-hud-label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-glow);
+}
+
+.story-hud-bar {
+  width: 180px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgb(247 241 232 / 0.15);
+}
+
+.story-hud-bar i {
+  display: block;
+  width: var(--progress, 100%);
+  height: 100%;
+  background: var(--color-glow);
+}
+
+.story-hud-caption {
+  font-size: 0.85rem;
+  color: var(--color-stone);
+}
+
+.story-steps {
+  position: relative;
+  z-index: 3;
+  margin: -100vh 0 0;
+  margin-top: -100svh;
+  padding: 0;
+  list-style: none;
+}
+
+.story-panel {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.story-panel-end > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.story-card {
+  /* Más opaco que .glass-dark: en movimiento reducido o sin JS los paneles
+     quedan sobre la cocina terminada (azulejo claro) y el texto debe pasar AA. */
+  background: rgb(20 18 16 / 0.62);
+  display: grid;
+  gap: 0.8rem;
+  max-width: 440px;
+  padding: 1.6rem 1.7rem;
+}
+
+.story-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--color-glow);
+}
+
+.story-text {
+  color: #d9d1c6;
+}
+
+@media (max-width: 700px) {
+  .story-card {
+    margin-top: 44vh;
+  }
+
+  .story-panel-end > div {
+    justify-content: flex-start;
+  }
+}

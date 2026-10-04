@@ -169,7 +169,8 @@ El elemento más distintivo del sitio. El fondo de la sección queda fijo (`posi
 
 | Variante | Fondo | Desenfoque | Dónde |
 |---|---|---|---|
-| Sobre oscuro | `rgba(20,18,16,.42)` + borde `rgba(242,182,109,.22)` | `blur(14px) saturate(140%)` | Tarjeta del hero, paneles del Proceso |
+| Sobre oscuro | `rgba(20,18,16,.42)` + borde `rgba(242,182,109,.22)` | `blur(14px) saturate(140%)` | Tarjeta del hero |
+| Paneles del Proceso | `rgba(20,18,16,.62)`: con movimiento reducido o sin JS quedan sobre la cocina terminada (azulejo claro) | ídem | Paneles del Proceso |
 | Sobre el mapa (escritorio) | `rgba(20,18,16,.62)` + sombra de texto suave | `blur(5px) saturate(130%)` | Tarjeta de la zona de servicio |
 | Sobre el mapa (móvil) | `rgba(20,18,16,.8)` | ídem | Ídem |
 
