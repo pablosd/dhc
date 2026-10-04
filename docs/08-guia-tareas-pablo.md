@@ -308,7 +308,7 @@ El bloque `stats.psalazar.dev { … }` ya está activo en `deploy/caddy/dhc.cadd
 ### 5.4 · Primer acceso y alta del sitio
 
 1. Abre <https://stats.psalazar.dev>. Usuario inicial `admin`, contraseña `umami` (los de fábrica de Umami).
-2. **Cambia la contraseña en ese mismo momento** (Settings → Profile), guárdala en tu gestor y, si quieres, activa el doble factor.
+2. **Cambia la contraseña en ese mismo momento** (Settings → Profile), guárdala en tu gestor y, si quieres, activa el doble factor. Después **cierra sesión y vuelve a entrar** con la contraseña nueva: si no, Umami puede responder "Unauthorized" al añadir el sitio (pasó el 4 oct 2026).
 3. Settings → Websites → **Add website**: nombre `DHC Woodcraft`, dominio `dhc.psalazar.dev`.
 4. Copia el **Website ID** (un UUID).
 5. En tu Mac, en `.env.local`, pon `NEXT_PUBLIC_UMAMI_WEBSITE_ID=` con ese ID (las otras dos líneas de Umami ya vienen bien en `.env.example`).
@@ -368,7 +368,7 @@ Si prefieres mandarle algo más cómodo que un archivo Markdown (un documento pa
 - [x] 2 · `dig +short @1.1.1.1 dhc.psalazar.dev` → `152.53.39.211` (creado por Claude el 4 oct 2026, gris; verificado en 1.1.1.1, 8.8.8.8 y 9.9.9.9)
 - [x] 3 · VPS: `/var/www/dhc` tuyo, ufw 80/443, Caddy con `sites/dhc.caddy` (4 oct 2026; el poller de TTrack ya estaba `inactive` antes y sigue igual)
 - [x] 4 · `https://dhc.psalazar.dev/` redirige por idioma, 404 por idioma, candado correcto (4 oct 2026)
-- [ ] 5 · Umami en `stats.psalazar.dev` con contraseña cambiada y eventos llegando
+- [x] 5 · Umami en `stats.psalazar.dev` con contraseña cambiada y eventos llegando (4 oct 2026)
 - [ ] 6 · Search Console verificado y sitemap enviado; Bing importado; Rich Results sin errores
 - [ ] 7 · Español revisado
 - [ ] 8 · Cuestionario enviado / respondido
