@@ -72,7 +72,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T15 · Zona de servicio: mapa**
   Adaptar `scripts/geo/` para generar `src/content/area-map.ts` (+ `npm run geo`), `AreaMapSvg` (Server Component), `GlassCard` superpuesta con lista de ciudades, leyenda y CTA, `AreaMapHover` y entrada con `RevealObserver`. Las ciudades atendidas salen de `site.ts`.
   **Terminado (además del común):** sin huecos entre zonas; el hover funciona en escritorio (la tarjeta no bloquea el mapa) y la lista resalta la zona; en móvil el mapa va arriba y la tarjeta encima de su parte baja.
-- [ ] **T16 · FAQ** (`<details>` animado con foto al lado en escritorio; solo preguntas con respuesta confirmada)
+- [x] **T16 · FAQ** (`<details>` animado con foto al lado en escritorio; solo preguntas con respuesta confirmada)
 - [ ] **T17 · Contacto + `EstimateForm`**
   Campos y obligatoriedad de `02`, validación nativa con mensajes del diccionario vía `setCustomValidity`, honeypot, `fetch` a `NEXT_PUBLIC_FORM_ENDPOINT` (Web3Forms), estados de enviando/éxito/error, idioma como campo oculto, aviso de consentimiento y `umami.track` en éxito/error. Columna lateral con los dos teléfonos. Verificar los límites del plan gratuito del proveedor.
   **Terminado (además del común):** con el navegador en inglés, los mensajes de validación de `/es/` salen en español. Un envío de prueba llega al correo de destino.
