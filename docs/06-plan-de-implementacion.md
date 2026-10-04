@@ -67,7 +67,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T12 · Proceso: la cocina que se arma**
   `KitchenSvg` (Server Component, con los `data-*` de `03` → Firma), escenario `sticky`, paneles `GlassCard`, indicador de paso y el componente cliente `ScrollStory`. Partir de la cocina de la maqueta.
   **Terminado (además del común):** las 4 etapas coinciden con sus paneles; con `prefers-reduced-motion` y sin JS se ve la cocina terminada; scroll fluido en un móvil de gama media (sin tirones visibles en el perfil de rendimiento).
-- [ ] **T13 · Proyectos: antes y después** (`BeforeAfterCard` sin JS dentro de `Carousel`; ilustraciones de ejemplo hasta tener fotos)
+- [x] **T13 · Proyectos: antes y después** (`BeforeAfterCard` sin JS dentro de `Carousel`; ilustraciones de ejemplo hasta tener fotos)
 - [ ] **T14 · Reseñas** (`Carousel` de `ReviewCard`; aviso y etiquetas "de ejemplo" visibles mientras no haya reseñas reales)
 - [ ] **T15 · Zona de servicio: mapa**
   Adaptar `scripts/geo/` para generar `src/content/area-map.ts` (+ `npm run geo`), `AreaMapSvg` (Server Component), `GlassCard` superpuesta con lista de ciudades, leyenda y CTA, `AreaMapHover` y entrada con `RevealObserver`. Las ciudades atendidas salen de `site.ts`.

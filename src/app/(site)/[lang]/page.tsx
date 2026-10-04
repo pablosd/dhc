@@ -3,6 +3,7 @@ import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
 import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
+import { Work } from "@/components/sections/Work";
 import { Marquee } from "@/components/ui/Marquee";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 
@@ -19,6 +20,7 @@ export default async function LandingPage({ params }: PageProps<"/[lang]">) {
       <Services lang={lang} />
       <About lang={lang} />
       <Process lang={lang} />
+      <Work lang={lang} />
     </main>
   );
 }
