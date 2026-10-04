@@ -362,7 +362,7 @@ Si prefieres mandarle algo más cómodo que un archivo Markdown (un documento pa
 ## Lista final
 
 - [x] 1 · Clave de Web3Forms en `.env.local` y envío de prueba recibido (4 oct 2026, cuenta de pruebas de Pablo)
-- [ ] 2 · `dig +short @1.1.1.1 dhc.psalazar.dev` → `152.53.39.211`
+- [x] 2 · `dig +short @1.1.1.1 dhc.psalazar.dev` → `152.53.39.211` (creado por Claude el 4 oct 2026, gris; verificado en 1.1.1.1, 8.8.8.8 y 9.9.9.9)
 - [ ] 3 · VPS: `/var/www/dhc` tuyo, ufw 80/443, Caddy con `sites/dhc.caddy`, TTrack `active`
 - [ ] 4 · `https://dhc.psalazar.dev/` redirige por idioma, 404 por idioma, candado correcto
 - [ ] 5 · Umami en `stats.psalazar.dev` con contraseña cambiada y eventos llegando
