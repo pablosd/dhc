@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { RevealObserver } from "@/components/client/RevealObserver";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { getDictionary, hasLocale, htmlLang, locales } from "@/lib/i18n";
 import { bodyFont, displayFont } from "../../fonts";
@@ -20,10 +21,17 @@ export default async function SiteLayout({
   const dict = getDictionary(lang);
 
   return (
-    <html lang={htmlLang[lang]} className={`${displayFont.variable} ${bodyFont.variable}`}>
+    <html
+      lang={htmlLang[lang]}
+      className={`${displayFont.variable} ${bodyFont.variable}`}
+      suppressHydrationWarning
+    >
       <body>
+        {/* Marca .js antes de pintar: las animaciones solo ocultan contenido con JS. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <SkipLink label={dict.a11y.skipLink} />
         {children}
+        <RevealObserver />
       </body>
     </html>
   );

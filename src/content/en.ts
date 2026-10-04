@@ -33,7 +33,6 @@ const en = {
     callEs: "Call DHC in Spanish at {phoneEs}",
     whatsapp: "Message us on WhatsApp", // TODO B2
     marqueePause: "Pause animation",
-    marqueePlay: "Play animation",
     logoHome: "DHC Woodcraft & Installation — home",
     carousel: "carousel",
     slide: "slide",

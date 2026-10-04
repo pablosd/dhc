@@ -10,6 +10,9 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { Icon, iconNames } from "@/components/ui/Icon";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Marquee } from "@/components/ui/Marquee";
+import { Carousel } from "@/components/client/Carousel";
+import { filler } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Styleguide · DHC",
@@ -52,6 +55,7 @@ export default async function StyleguidePage({ params }: PageProps<"/[lang]/styl
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
+  const t = filler(lang);
 
   return (
     <main id="main" className="mx-auto grid max-w-site gap-16 px-5 py-12 md:px-8">
@@ -201,6 +205,48 @@ export default async function StyleguidePage({ params }: PageProps<"/[lang]/styl
             <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} />
             <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} photo={{ name: "styleguide-test", alt: "Imagen de prueba de la styleguide", sizes: "(min-width: 768px) 50vw, 100vw" }} />
           </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-motion" className="grid gap-10">
+        <h2 id="sg-motion">Animaciones (T07)</h2>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Marquee · pausa con hover, foco o el interruptor</p>
+          <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Reveal · up / fade / scale con --delay</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {(["up", "fade", "scale"] as const).map((v, i) => (
+              <div key={v} data-reveal={v} style={{ ["--delay" as string]: `${i * 0.08}s` }} className="rounded border border-line bg-paper p-6">
+                data-reveal=&quot;{v}&quot;
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Contador · data-count</p>
+          <p className="font-display text-6xl font-bold text-walnut"><span data-count="25">25</span>+</p>
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Carousel · 5 diapositivas de ejemplo</p>
+          <Carousel
+            label={dict.reviews.title}
+            interval={4000}
+            labels={{ carousel: dict.a11y.carousel, prev: dict.a11y.prev, next: dict.a11y.next, pause: dict.a11y.pause, resume: dict.a11y.resume, goTo: dict.a11y.goTo }}
+          >
+            {dict.reviews.items.map((r, i) => (
+              <article key={r.project} role="group" aria-roledescription={dict.a11y.slide} aria-label={t(dict.a11y.slideOf, { n: i + 1, total: dict.reviews.items.length })} className="grid h-full gap-3 rounded border border-line bg-paper p-6">
+                <span className="eyebrow">{dict.sample.review}</span>
+                <q>{r.quote}</q>
+                <span className="text-sm text-muted">{dict.reviews.sampleName} · {r.project}</span>
+              </article>
+            ))}
+          </Carousel>
         </div>
       </section>
     </main>

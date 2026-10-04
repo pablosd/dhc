@@ -46,7 +46,6 @@ Cada sección tiene un único H2. El H1 solo está en el hero. Referencia visual
 | a11y.callEs | Call DHC in Spanish at {phoneEs} | Llamar a DHC en español al {phoneEs} |
 | a11y.whatsapp **[TODO B2]** | Message us on WhatsApp | Escríbenos por WhatsApp |
 | a11y.marqueePause | Pause animation | Pausar animación |
-| a11y.marqueePlay | Play animation | Reanudar animación |
 | a11y.logoHome | DHC Woodcraft & Installation — home | DHC Woodcraft & Installation — inicio |
 | a11y.carousel | carousel | carrusel |
 | a11y.slide | slide | diapositiva |
@@ -117,7 +116,7 @@ En la tarjeta, la línea del idioma de la página va primero.
 EN: Cabinets • Kitchen Remodels • Wood Ceilings & Beams • Trim & Molding • Doors • Decks & Patios • Framing • General Carpentry
 ES: Gabinetes • Remodelación de cocinas • Techos y vigas de madera • Molduras • Puertas • Decks y terrazas • Framing • Carpintería general
 
-Interruptor de pausa: claves `a11y.marqueePause` / `a11y.marqueePlay`.
+Interruptor de pausa: `a11y.marqueePause` (es un `role="switch"`: el lector anuncia "activado/desactivado", así que basta una etiqueta).
 
 ## 4 · Servicios **[TODO C1–C3]**
 

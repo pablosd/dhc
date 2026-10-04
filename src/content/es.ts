@@ -31,7 +31,6 @@ const es: Dictionary = {
     callEs: "Llamar a DHC en español al {phoneEs}",
     whatsapp: "Escríbenos por WhatsApp", // TODO B2
     marqueePause: "Pausar animación",
-    marqueePlay: "Reanudar animación",
     logoHome: "DHC Woodcraft & Installation — inicio",
     carousel: "carrusel",
     slide: "diapositiva",

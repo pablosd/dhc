@@ -270,6 +270,273 @@
   }
 }
 
+/* ---------- Animaciones (docs/03 → Animaciones) ---------- */
+
+/* Reveal al entrar en pantalla. Solo se oculta si hay JS (clase .js en
+   <html>, puesta antes de pintar): sin JS todo se ve desde el principio. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transition:
+      opacity 0.6s var(--ease-craft) var(--delay, 0s),
+      transform 0.6s var(--ease-craft) var(--delay, 0s);
+  }
+
+  .js [data-reveal="up"] {
+    transform: translateY(16px);
+  }
+
+  .js [data-reveal="scale"] {
+    transform: scale(0.96);
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Cinta de servicios con interruptor de pausa sin JS. */
+.plank {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(100deg, #5a2d14, #8a4a22 40%, #6b361a 70%, var(--color-walnut-deep));
+  color: #f7e6cf;
+  border-block: 1px solid rgb(0 0 0 / 0.25);
+}
+
+.plank::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Cg fill='none' stroke='%23F2B66D' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 60px;
+  opacity: 0.12;
+}
+
+.marquee {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marquee-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: marquee-slide 40s linear infinite;
+}
+
+.marquee-track li {
+  padding: 1rem 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee-track li::after {
+  content: "•";
+  margin-left: 2.4rem;
+  color: var(--color-glow);
+}
+
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee:has(input:checked) .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-switch {
+  position: relative;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.marquee-switch input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.marquee-switch-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgb(247 230 207 / 0.5);
+}
+
+.marquee-switch input:focus-visible + .marquee-switch-icon {
+  outline: 2px solid var(--color-glow);
+  outline-offset: 2px;
+}
+
+.marquee-switch .icon-play,
+.marquee-switch input:checked + .marquee-switch-icon .icon-pause {
+  display: none;
+}
+
+.marquee-switch input:checked + .marquee-switch-icon .icon-play {
+  display: block;
+}
+
+/* Carrusel (docs/03 → Carrusel). */
+.carousel {
+  --per: 3;
+  --gap: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .carousel {
+    --per: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel {
+    --per: 1.12;
+  }
+}
+
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--gap) * (var(--per) - 1))) / var(--per));
+  gap: var(--gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding-block: 4px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track > * {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.carousel-time {
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-line);
+}
+
+.carousel-time i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--color-oak);
+}
+
+.carousel.is-running .carousel-time i {
+  animation: carousel-time var(--interval, 5s) linear forwards;
+}
+
+@keyframes carousel-time {
+  to {
+    width: 100%;
+  }
+}
+
+.carousel-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-right: auto;
+}
+
+.carousel-dots button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel-dots button::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-line);
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.carousel-dots button[aria-current="true"]::before {
+  background: var(--color-walnut);
+  transform: scale(1.25);
+}
+
+.carousel-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.carousel-btn:hover {
+  border-color: var(--color-oak);
+  color: var(--color-walnut);
+}
+
+.carousel-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* Movimiento reducido: todo aparece sin animación (docs/03 → Animaciones). */
 @media (prefers-reduced-motion: reduce) {
   html {

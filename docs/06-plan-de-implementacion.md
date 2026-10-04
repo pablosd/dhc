@@ -52,7 +52,7 @@ Prompt sugerido para cada sesión de Claude Code:
   `Container`, `SectionHeading` (eyebrow + H2 + lead), `Button` (variantes de `03`), `Icon` (8 iconos de línea para los servicios más teléfono, flecha, check, menú, cerrar, WhatsApp, pausa/play, anterior/siguiente), `Photo`, `PhotoPlaceholder` (veta de madera e icono; acepta foto), el patrón SVG `WoodGrain` y `GlassCard` (variantes de `03` → Vidrio esmerilado). Script `scripts/optimize-images.mjs` (sharp como devDependency) según `02` → Imágenes.
   **Terminado:** todos visibles en la styleguide, accesibles por teclado y con AA. El script procesa una imagen de prueba y `Photo` la muestra con `srcset` sin CLS.
 
-- [ ] **T07 · Animaciones base**
+- [x] **T07 · Animaciones base**
   CSS de `[data-reveal]` (variantes `up`, `fade` y `scale`, con `--delay`), el componente cliente `RevealObserver` con un único `IntersectionObserver`, contadores `[data-count]`, la cinta *marquee* con interruptor de pausa sin JS (`03` → Marquee accesible) y el componente cliente `Carousel` (`03` → Carrusel), probado en la styleguide.
   **Terminado:** las animaciones se ven al hacer scroll. El marquee se pausa con el interruptor, con el teclado y con hover. Con `prefers-reduced-motion` todo aparece sin movimiento. El JS propio pesa ≤ 15 KB gzip.
 
