@@ -1,10 +1,23 @@
-# DHC Woodcraft & Installation — sitio en Caddy (ver docs/02-arquitectura.md → Hosting).
+# DHC Woodcraft & Installation — sitio en Caddy (docs/02-arquitectura.md → Hosting).
 # En la VPS: /etc/caddy/sites/dhc.caddy, importado desde el Caddyfile principal
 # (`import sites/*.caddy`). Antes de recargar:
-#   caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
+#   sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
 # Nunca `restart`: la máquina es compartida con TTrack.
-#
-# Redirección por idioma en "/" (T04) y 404 por idioma (T22). Caché y cabeceras: T25.
+
+# Cabeceras de seguridad, también en las respuestas de error (handle_errors
+# no hereda las de la ruta principal). HSTS sin includeSubDomains ni preload:
+# no debe afectar a otros subdominios de psalazar.dev. Sin CSP en fase 1
+# (scripts inline de Next).
+(dhc_security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-Frame-Options "DENY"
+		-Server
+	}
+}
 
 dhc.psalazar.dev {
 	root * /var/www/dhc/current
@@ -25,11 +38,23 @@ dhc.psalazar.dev {
 	redir @root_other /en/ 302
 	header / Vary Accept-Language
 
+	# Caché: lo versionado por Next, un año; imágenes y OG, 30 días; HTML,
+	# siempre revalidar (los despliegues se ven al instante).
+	header /_next/static/* Cache-Control "public, max-age=31536000, immutable"
+	@media path /images/* /og/* /favicon.ico /icon.svg* /apple-icon.png*
+	header @media Cache-Control "public, max-age=2592000"
+	@html path / *.html */
+	header @html Cache-Control "no-cache"
+
+	import dhc_security_headers
+
 	file_server
 
 	# 404 por idioma (docs/02 → Páginas 404). file_server dentro de
 	# handle_errors conserva el estado 404 del error original.
 	handle_errors {
+		import dhc_security_headers
+		header Cache-Control "no-cache"
 		@404_en expression `{err.status_code} == 404 && {path}.startsWith("/en/")`
 		@404_es expression `{err.status_code} == 404 && {path}.startsWith("/es/")`
 		handle @404_en {
@@ -46,3 +71,10 @@ dhc.psalazar.dev {
 		}
 	}
 }
+
+# Analítica (Umami en Docker, publicado solo en 127.0.0.1:3001). Descomentar
+# cuando Umami esté levantado y exista el registro DNS `stats` (guía docs/08).
+# stats.psalazar.dev {
+# 	encode zstd gzip
+# 	reverse_proxy 127.0.0.1:3001
+# }

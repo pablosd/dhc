@@ -1,0 +1,43 @@
+# Umami autoalojado (docs/02 → Analítica). Basado en el docker-compose oficial
+# (github.com/umami-software/umami, v3.4.0 al 4 oct 2026) con tres cambios:
+#   - publicado SOLO en 127.0.0.1:3001 (Docker se salta ufw; Caddy hace de proxy)
+#   - secretos en .env (no en este archivo)
+#   - límites de memoria: la VPS es compartida con TTrack
+# En la VPS: /opt/umami/docker-compose.yml + /opt/umami/.env (ver .env.example).
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:latest
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:${POSTGRES_PASSWORD}@db:5432/umami
+      APP_SECRET: ${APP_SECRET}
+      TWO_FACTOR_ENCRYPTION_KEY: ${TWO_FACTOR_ENCRYPTION_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    restart: always
+    mem_limit: 512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    restart: always
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  umami-db-data:

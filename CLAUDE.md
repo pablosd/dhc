@@ -15,6 +15,7 @@ Toda la especificación vive en `docs/`. Antes de implementar cualquier cosa, le
 | `docs/04-contenido.md` | Secciones de la página y textos EN/ES |
 | `docs/05-seo.md` | Metadatos, hreflang, JSON-LD, sitemap, rendimiento |
 | `docs/06-plan-de-implementacion.md` | Tareas ordenadas con criterio de "terminado" |
+| `docs/08-guia-tareas-pablo.md` | Guía paso a paso de lo que hace Pablo: Web3Forms, DNS, VPS, despliegue, Umami, Search Console |
 | `docs/07-cuestionario-dueno.md` | Cuestionario para el dueño: todos los datos pendientes del negocio, con códigos (`A1`, `D1`…) que usan los demás docs |
 
 Recursos de marca: `assets/brand/` (tarjeta de presentación original con el logo).
