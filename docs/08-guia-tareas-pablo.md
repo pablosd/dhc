@@ -137,6 +137,7 @@ Deben aparecer `80,443/tcp ALLOW IN` (además de `OpenSSH`). El 80 hace falta pa
 **Si `command -v caddy` no devolvió nada (no está instalado)**, instálalo desde su repositorio oficial (la versión de Debian se queda atrás):
 
 ```bash
+sudo apt update
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
@@ -144,6 +145,8 @@ sudo chmod o+r /usr/share/keyrings/caddy-stable-archive-keyring.gpg /etc/apt/sou
 sudo apt update && sudo apt install -y caddy
 caddy version
 ```
+
+> Siempre `sudo apt update` antes de instalar: con el índice desactualizado, el mirror responde 404 a versiones que ya no existen (pasó el 4 oct 2026 con `gpg`). `apt` aborta antes de instalar nada, así que basta con repetir tras el `update`.
 
 **Caddyfile principal.** Cada proyecto va en su propio archivo dentro de `/etc/caddy/sites/`:
 
