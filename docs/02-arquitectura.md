@@ -111,7 +111,8 @@ Se usan dos **route groups** con layouts raíz independientes (`(root)` y `(site
   fill(dict.hero.ctaCall, { phone: site.phones[lang].display })
   ```
 
-  Marcadores permitidos: `{phone}` (línea del idioma de la página), `{phoneEn}`, `{phoneEs}`, `{email}`, `{year}`, `{city}`. `fill()` lanza un error en build si falta un valor.
+  Marcadores del negocio: `{phone}` (línea del idioma de la página), `{phoneEn}`, `{phoneEs}`, `{email}`, `{year}`. Marcadores de interfaz, que pasa el componente: `{n}`, `{total}`, `{title}`. `fill()` (`lib/fill.ts`) lanza un error en build si falta un valor; `filler(lang)` (`lib/i18n.ts`) devuelve un `t()` que ya incluye los datos del negocio del idioma.
+- Afirmaciones pendientes del dueño (estimado gratis, seguro, garantía…): banderas en `site.claims`; los componentes muestran u ocultan el texto según la bandera. Respuestas de FAQ vacías (`""`) = sin confirmar, no se publican.
 - **Teléfono por idioma:** `site.phones.en` y `site.phones.es` (cada uno con `display` y `e164`). En cada idioma, el CTA principal llama a la línea de ese idioma. El footer muestra las dos.
 - Selector de idioma: enlace `<a hrefLang lang>` a la página equivalente (no un `<select>`), visible en el header y en el menú móvil.
 - Anclas de sección traducidas (`#services` / `#servicios`), definidas en el diccionario.

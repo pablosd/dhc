@@ -33,7 +33,7 @@ Prompt sugerido para cada sesión de Claude Code:
   Crear `(root)` y `(site)/[lang]` con sus layouts, `generateStaticParams` (`en`, `es`), `dynamicParams = false` y la estructura de carpetas de `02`. Borrar el contenido de ejemplo de create-next-app.
   **Terminado:** `/out/en/index.html` y `/out/es/index.html` existen, con `<html lang="en-US">` y `<html lang="es-US">` respectivamente.
 
-- [ ] **T03 · i18n y contenido**
+- [x] **T03 · i18n y contenido**
   `lib/i18n.ts` (locales, `getDictionary`, `htmlLang`, `fill()`), `content/site.ts` (datos confirmados más `// TODO(confirmar) <código>` en el resto, `demoMode: true`, `phones.en` y `phones.es` con `display` y `e164`), y `content/en.ts` + `content/es.ts` con **todos** los textos de `04`. `en.ts` sin `as const` y `export type Dictionary = typeof en`; `es.ts` tipado como `Dictionary`. Los diccionarios usan marcadores (`{phone}`…) en lugar de datos del negocio.
   **Terminado:** si se borra una clave en `es.ts`, falla `tsc`. `fill()` falla en build si falta un valor. Ningún teléfono, correo ni año aparece escrito en los diccionarios.
 
