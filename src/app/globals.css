@@ -1987,3 +1987,32 @@ a.line-card:hover {
     padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
 }
+
+/* ---------- Páginas 404 ---------- */
+
+.not-found-page {
+  display: grid;
+  align-content: center;
+  gap: 3.5rem;
+  min-height: 70vh;
+  padding: clamp(64px, 10vw, 140px) 20px;
+}
+
+.not-found {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.not-found h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+}

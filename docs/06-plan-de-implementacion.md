@@ -89,7 +89,7 @@ Prompt sugerido para cada sesión de Claude Code:
   `lib/schema.ts`: `HomeAndConstructionBusiness` (con los dos `contactPoint` por idioma; sin `geo`, `priceRange` ni campos sin confirmar), `WebSite` y `FAQPage`.
   **Terminado:** el Rich Results Test y validator.schema.org no dan errores.
 - [x] **T21 · `sitemap.ts` + `robots.ts`** (force-static, con alternates; excluye `/`, `page-not-found` y `styleguide`)
-- [ ] **T22 · Iconos, imágenes OG y páginas 404**
+- [x] **T22 · Iconos, imágenes OG y páginas 404**
   `icon.svg`, `apple-icon.png`, `favicon.ico`, OG 1200×630 por idioma (textos de `04`). Páginas 404 según `02` → Páginas 404: `[lang]/page-not-found/`, `[lang]/not-found.tsx` y la 404 global bilingüe (`global-not-found.tsx` con `experimental.globalNotFound`; ver `02`). Añadir el bloque `handle_errors` a `deploy/caddy/dhc.caddy`.
   **Terminado:** existen `/out/404.html`, `/out/en/page-not-found/index.html` y `/out/es/page-not-found/index.html`, todas con `noindex`.
 

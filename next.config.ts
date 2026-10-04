@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   poweredByHeader: false,
+  // 404 global con varios layouts raíz (docs/02 → Páginas 404).
+  experimental: { globalNotFound: true },
 };
 
 export default nextConfig;
