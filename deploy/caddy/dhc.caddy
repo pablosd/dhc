@@ -1,6 +1,6 @@
 # DHC Woodcraft & Installation — sitio en Caddy (docs/02-arquitectura.md → Hosting).
 # En la VPS: /etc/caddy/sites/dhc.caddy, importado desde el Caddyfile principal
-# (`import sites/*.caddy`). Antes de recargar:
+# (`import /etc/caddy/sites/*.caddy`). Antes de recargar:
 #   sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
 # Nunca `restart`: la máquina es compartida con TTrack.
 

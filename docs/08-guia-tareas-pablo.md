@@ -155,13 +155,13 @@ sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.bak-$(date +%Y%m%d)
 - **Caso A, Caddy recién instalado** (el `Caddyfile` solo tiene el bloque de ejemplo `:80 { root * /usr/share/caddy … }`): reemplázalo entero por una sola línea:
 
   ```bash
-  echo 'import sites/*.caddy' | sudo tee /etc/caddy/Caddyfile
+  echo 'import /etc/caddy/sites/*.caddy' | sudo tee /etc/caddy/Caddyfile
   ```
 
 - **Caso B, Caddy ya sirve algo de TTrack:** no borres nada; añade la línea al final:
 
   ```bash
-  echo 'import sites/*.caddy' | sudo tee -a /etc/caddy/Caddyfile
+  echo 'import /etc/caddy/sites/*.caddy' | sudo tee -a /etc/caddy/Caddyfile
   ```
 
   Si dudas en cuál estás, mándame el contenido del `Caddyfile` del paso 3.0.

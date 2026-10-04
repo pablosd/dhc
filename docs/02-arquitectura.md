@@ -259,7 +259,7 @@ Por qué no GA4: pesa mucho más (afecta al rendimiento, que es parte del SEO), 
 TTrack es un sistema que no se puede caer. DHC se monta sin poner eso en riesgo:
 
 1. **No tocar** los registros `ttrack` ni `tel`, el puerto 4443 ni nada bajo `/opt/ttrack`.
-2. **Caddy:** la config de DHC vive en `/etc/caddy/sites/dhc.caddy`, importada desde el `Caddyfile` principal (`import sites/*.caddy`). Antes de aplicar cualquier cambio: `caddy validate --config /etc/caddy/Caddyfile`. Luego `systemctl reload caddy` (recarga sin cortar conexiones), **nunca** `restart`.
+2. **Caddy:** la config de DHC vive en `/etc/caddy/sites/dhc.caddy`, importada desde el `Caddyfile` principal (`import /etc/caddy/sites/*.caddy`). Antes de aplicar cualquier cambio: `caddy validate --config /etc/caddy/Caddyfile`. Luego `systemctl reload caddy` (recarga sin cortar conexiones), **nunca** `restart`.
 3. **Cortafuegos:** solo se abren 80 y 443 (`ufw allow 80,443/tcp`). El 80 hace falta para el certificado y la redirección a HTTPS.
 4. **Docker (Umami) y ufw:** Docker publica puertos saltándose ufw. Por eso Umami se publica **solo en `127.0.0.1`** (`127.0.0.1:3001:3000` en el compose) y Caddy hace de proxy. Con límites de memoria en el compose (la máquina tiene 4 GB y TTrack va primero).
 5. Sin reinicios: las actualizaciones automáticas siguen **sin reinicio automático**, igual que en TTrack.
