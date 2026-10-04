@@ -82,7 +82,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque D · SEO
 
-- [ ] **T19 · Metadata por idioma**
+- [x] **T19 · Metadata por idioma**
   `generateMetadata` con title, description, canonical, `alternates.languages` (incluido `x-default`), Open Graph y Twitter. `metadataBase` desde `site.url`. `themeColor` en `export const viewport`.
   **Terminado:** el `<head>` de `/out/en/index.html` y de `/out/es/index.html` contiene canonical y hreflang recíprocos, y `<meta name="theme-color">`. Sin avisos de deprecación en el build.
 - [ ] **T20 · JSON-LD**

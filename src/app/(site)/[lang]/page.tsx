@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { About } from "@/components/sections/About";
 import { Areas } from "@/components/sections/Areas";
@@ -10,6 +11,13 @@ import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Marquee } from "@/components/ui/Marquee";
 import { getDictionary, hasLocale } from "@/lib/i18n";
+import { landingPaths, pageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  return pageMetadata(lang, landingPaths);
+}
 
 // La landing: compone las secciones en el orden de docs/04.
 export default async function LandingPage({ params }: PageProps<"/[lang]">) {

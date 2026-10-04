@@ -1,3 +1,4 @@
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { RevealObserver } from "@/components/client/RevealObserver";
 import { DemoBanner } from "@/components/layout/DemoBanner";
@@ -5,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { site } from "@/content/site";
 import { getDictionary, hasLocale, htmlLang, locales } from "@/lib/i18n";
 import { bodyFont, displayFont } from "../../fonts";
 import "../../globals.css";
@@ -15,6 +17,17 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
+
+// Base para todas las URLs absolutas (canonical, hreflang, Open Graph).
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  applicationName: site.name,
+};
+
+// themeColor va en viewport, no en metadata (Next 14+, docs/05 §2).
+export const viewport: Viewport = {
+  themeColor: "#141210",
+};
 
 export default async function SiteLayout({
   children,
