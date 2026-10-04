@@ -95,7 +95,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque E · Calidad y despliegue
 
-- [ ] **T23 · Analítica y eventos de conversión**
+- [ ] **T23 · Analítica y eventos de conversión** — código hecho (`components/layout/Analytics.tsx`, variables en `.env.example`, `data-umami-event` en llamadas, CTA, idioma y WhatsApp; `umami.track` en el formulario); **pendiente:** instalar Umami en la VPS, crear el sitio y verificar Search Console/Bing
   Umami (Docker + Postgres) en la VPS, publicado solo en `127.0.0.1:3001` y con límite de memoria; `stats.psalazar.dev` en Caddy y en DNS (gris). Script con `next/script` y atributos `data-umami-event` de `02`. Search Console con propiedad de prefijo de URL (archivo HTML en `public/`) y Bing Webmaster importando desde Search Console.
   ⚠️ Requiere que la VPS esté montada (T25, requisitos previos); si aún no lo está, hacer T23 después de T25.
   **Terminado:** en el panel de Umami aparecen una visita y cada uno de los eventos de prueba.

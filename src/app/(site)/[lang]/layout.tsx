@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { RevealObserver } from "@/components/client/RevealObserver";
+import { Analytics } from "@/components/layout/Analytics";
 import { DemoBanner } from "@/components/layout/DemoBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -53,6 +54,7 @@ export default async function SiteLayout({
         <Footer lang={lang} />
         <MobileCtaBar lang={lang} />
         <RevealObserver />
+        <Analytics />
       </body>
     </html>
   );
