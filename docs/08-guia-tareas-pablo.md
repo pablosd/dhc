@@ -361,7 +361,7 @@ Si prefieres mandarle algo más cómodo que un archivo Markdown (un documento pa
 
 ## Lista final
 
-- [ ] 1 · Clave de Web3Forms en `.env.local` y envío de prueba recibido
+- [x] 1 · Clave de Web3Forms en `.env.local` y envío de prueba recibido (4 oct 2026, cuenta de pruebas de Pablo)
 - [ ] 2 · `dig +short @1.1.1.1 dhc.psalazar.dev` → `152.53.39.211`
 - [ ] 3 · VPS: `/var/www/dhc` tuyo, ufw 80/443, Caddy con `sites/dhc.caddy`, TTrack `active`
 - [ ] 4 · `https://dhc.psalazar.dev/` redirige por idioma, 404 por idioma, candado correcto
