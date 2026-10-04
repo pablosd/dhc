@@ -883,3 +883,151 @@ body:not(:has(.hero)) .site-header {
 .hero-card-phone:hover {
   color: var(--color-glow);
 }
+
+/* ---------- Secciones: base ---------- */
+
+.section {
+  padding-block: clamp(72px, 9vw, 128px);
+}
+
+.section-head {
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
+/* ---------- Servicios (docs/04 §4) ---------- */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.5em 0.95em;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--color-oak);
+  color: var(--color-walnut);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.7rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  background: var(--color-paper);
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  transition:
+    transform 0.2s var(--ease-craft),
+    box-shadow 0.2s var(--ease-craft),
+    border-color 0.2s var(--ease-craft);
+}
+
+.service-grid > li {
+  display: grid;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-oak);
+  box-shadow: 0 14px 30px rgb(78 37 18 / 0.12);
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  right: -20%;
+  bottom: -40%;
+  width: 70%;
+  height: 70%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Cg fill='none' stroke='%23B8692F' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 60px;
+  opacity: 0.07;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.service-icon {
+  color: var(--color-oak);
+}
+
+.service-icon * {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .service-card:hover .service-icon * {
+    animation: icon-draw 0.7s var(--ease-craft);
+  }
+}
+
+@keyframes icon-draw {
+  from {
+    stroke-dashoffset: 120;
+  }
+}
+
+.service-card p {
+  color: var(--color-muted);
+  font-size: 0.98rem;
+}
+
+.service-points {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-walnut);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.service-points li::before {
+  content: "— ";
+  color: var(--color-oak);
+}
+
+.services-footer {
+  margin-top: 2rem;
+}
+
+.services-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 48px;
+  color: var(--color-walnut);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
