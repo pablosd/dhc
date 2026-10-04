@@ -24,7 +24,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque A · Fundaciones
 
-- [ ] **T01 · Crear el proyecto**
+- [x] **T01 · Crear el proyecto**
   `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"`. Configurar `next.config.ts` según `02` (export estático, `trailingSlash`, `images.unoptimized`). Añadir `.nvmrc` con la versión LTS de Node. `git init`, `.gitignore` (incluye `/out`, `.env*.local`) y primer commit.
   ⚠️ La carpeta no está vacía y create-next-app 16+ genera su propio `CLAUDE.md`/`AGENTS.md`. Crea el proyecto en una carpeta temporal y mueve los archivos aquí, **conservando nuestro `CLAUDE.md`** y añadiéndole al final la línea `@AGENTS.md`.
   **Terminado:** `npm run build` genera `/out` sin errores y el repo tiene su primer commit.
@@ -90,7 +90,7 @@ Prompt sugerido para cada sesión de Claude Code:
   **Terminado:** el Rich Results Test y validator.schema.org no dan errores.
 - [ ] **T21 · `sitemap.ts` + `robots.ts`** (force-static, con alternates; excluye `/`, `page-not-found` y `styleguide`)
 - [ ] **T22 · Iconos, imágenes OG y páginas 404**
-  `icon.svg`, `apple-icon.png`, `favicon.ico`, OG 1200×630 por idioma (textos de `04`). Páginas 404 según `02` → Páginas 404: `[lang]/page-not-found/`, `[lang]/not-found.tsx` y la 404 global bilingüe (verificar `global-not-found` en la documentación de Next 16). Añadir el bloque `handle_errors` a `deploy/caddy/dhc.caddy`.
+  `icon.svg`, `apple-icon.png`, `favicon.ico`, OG 1200×630 por idioma (textos de `04`). Páginas 404 según `02` → Páginas 404: `[lang]/page-not-found/`, `[lang]/not-found.tsx` y la 404 global bilingüe (`global-not-found.tsx` con `experimental.globalNotFound`; ver `02`). Añadir el bloque `handle_errors` a `deploy/caddy/dhc.caddy`.
   **Terminado:** existen `/out/404.html`, `/out/en/page-not-found/index.html` y `/out/es/page-not-found/index.html`, todas con `noindex`.
 
 ## Bloque E · Calidad y despliegue

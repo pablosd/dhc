@@ -61,7 +61,7 @@ const nextConfig: NextConfig = {
 │   │   ├── fonts/                    # 3 .woff2 + OFL.txt (licencia)
 │   │   ├── globals.css               # Tailwind + tokens de diseño
 │   │   ├── icon.svg, apple-icon.png, favicon.ico
-│   │   ├── global-not-found.tsx      # 404 global bilingüe → /404.html (verificar API en Next 16)
+│   │   ├── global-not-found.tsx      # 404 global bilingüe → /404.html (experimental: requiere experimental.globalNotFound)
 │   │   ├── (root)/                   # layout raíz propio solo para "/"
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx              # respaldo: detecta idioma → /en/ o /es/ (noindex)
@@ -92,7 +92,7 @@ const nextConfig: NextConfig = {
 └── next.config.ts
 ```
 
-Se usan dos **route groups** con layouts raíz independientes (`(root)` y `(site)`). Así `/[lang]` puede emitir `<html lang="en-US">` o `<html lang="es-US">` correctamente, y `/` tiene su propio HTML mínimo. Como no hay un `app/layout.tsx` común, la 404 global usa `global-not-found` (comprobar en la documentación de Next 16 durante T22).
+Se usan dos **route groups** con layouts raíz independientes (`(root)` y `(site)`). Así `/[lang]` puede emitir `<html lang="en-US">` o `<html lang="es-US">` correctamente, y `/` tiene su propio HTML mínimo. Como no hay un `app/layout.tsx` común, la 404 global usa `global-not-found.tsx`. En Next 16 es **experimental**: hay que activar `experimental: { globalNotFound: true }` en `next.config.ts`, y el archivo importa sus propios estilos y fuentes porque no pasa por ningún layout (`node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/not-found.md`).
 
 ## Internacionalización
 

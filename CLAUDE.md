@@ -57,3 +57,5 @@ node scripts/optimize-images.mjs   # assets/photos → public/images (AVIF/WebP)
 - Ciudad: Austin, TX. Sitio: `dhc.psalazar.dev` (inicial). Formulario: Web3Forms. Analítica: Umami en `stats.psalazar.dev`.
 - Correo, dirección, horario y el resto de datos: **pendientes** (cuestionario en `docs/07`; decisiones pendientes en `docs/01` → Decisiones).
 - En Texas no hay licencia estatal para carpintería: nunca escribir "licensed" sin confirmación (`E1`).
+
+@AGENTS.md
