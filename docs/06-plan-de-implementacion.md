@@ -29,7 +29,7 @@ Prompt sugerido para cada sesión de Claude Code:
   ⚠️ La carpeta no está vacía y create-next-app 16+ genera su propio `CLAUDE.md`/`AGENTS.md`. Crea el proyecto en una carpeta temporal y mueve los archivos aquí, **conservando nuestro `CLAUDE.md`** y añadiéndole al final la línea `@AGENTS.md`.
   **Terminado:** `npm run build` genera `/out` sin errores y el repo tiene su primer commit.
 
-- [ ] **T02 · Estructura y route groups**
+- [x] **T02 · Estructura y route groups**
   Crear `(root)` y `(site)/[lang]` con sus layouts, `generateStaticParams` (`en`, `es`), `dynamicParams = false` y la estructura de carpetas de `02`. Borrar el contenido de ejemplo de create-next-app.
   **Terminado:** `/out/en/index.html` y `/out/es/index.html` existen, con `<html lang="en-US">` y `<html lang="es-US">` respectivamente.
 
