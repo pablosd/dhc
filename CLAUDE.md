@@ -33,7 +33,7 @@ Recursos de marca: `assets/brand/` (tarjeta de presentación original con el log
 
 1. **Pablo decide contigo, no tú solo.** Las propuestas se discuten antes de implementarse. Si una tarea obliga a tomar una decisión que no está en `docs/`, para y pregunta.
 2. **Una tarea del plan a la vez** (`docs/06`). Al terminar, verifica su criterio de "terminado" y márcala en el plan.
-3. **Todo el texto visible sale de los diccionarios** (`src/content/en.ts`, `src/content/es.ts`). Nada de strings hardcodeados en componentes (única excepción: la styleguide, que solo existe en desarrollo).
+3. **Todo el texto visible sale de los diccionarios** (`src/content/en.ts`, `src/content/es.ts`). Nada de strings hardcodeados en componentes (excepciones: la styleguide, que solo existe en desarrollo, y las herramientas internas en español de `src/app/(tools)/`, como el cuestionario del dueño).
 4. **Datos del negocio en un solo archivo** (`src/content/site.ts`). Lo que aún no está confirmado lleva `// TODO(confirmar) <código del cuestionario>`. Los diccionarios no repiten esos datos: usan marcadores (`{phone}`, `{year}`…) que se rellenan con `fill()`.
 5. **Nada de contenido falso en producción:** ni reseñas inventadas presentadas como reales, ni fotos de stock presentadas como trabajos de DHC. Los marcadores de posición deben verse como tales (ver `docs/04`).
 6. **JS mínimo:** Server Components por defecto; `"use client"` solo donde haga falta interactividad. El rendimiento es parte del SEO.

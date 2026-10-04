@@ -62,6 +62,8 @@ const nextConfig: NextConfig = {
 │   │   ├── globals.css               # Tailwind + tokens de diseño
 │   │   ├── icon.svg, apple-icon.png, favicon.ico
 │   │   ├── global-not-found.tsx      # 404 global bilingüe → /404.html (experimental: requiere experimental.globalNotFound)
+│   │   ├── (tools)/                  # herramientas internas en español (layout propio, noindex)
+│   │   │   └── cuestionario-dhc/     # cuestionario del dueño (docs/07), solo en el navegador
 │   │   ├── (root)/                   # layout raíz propio solo para "/"
 │   │   │   ├── layout.tsx
 │   │   │   └── page.tsx              # respaldo: detecta idioma → /en/ o /es/ (noindex)

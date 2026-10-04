@@ -16,6 +16,7 @@ Este documento tiene dos partes:
   3. Servicios y zonas → `docs/01` (tabla de servicios), `docs/05` (palabras clave, `areaServed`).
   4. Marcar la pregunta como respondida en la tabla de seguimiento de abajo.
 - El cuestionario está en español. Si el dueño prefiere inglés, se traduce antes de enviarlo.
+- **Versión web (recomendada):** https://dhc.psalazar.dev/cuestionario-dhc/ (no indexada ni enlazada). El dueño responde en el móvil (el borrador se guarda en su teléfono, nada en la VPS) y al terminar elige: **Enviar a Pablo** (correo vía Web3Forms), **Compartir por WhatsApp**, **Copiar** o **Descargar .doc**. Las preguntas viven en `src/content/questionnaire.ts`: si cambias una aquí, cámbiala también allí.
 
 ### Seguimiento
 

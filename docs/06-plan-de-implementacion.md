@@ -95,7 +95,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque E · Calidad y despliegue
 
-- [x] **T23 · Analítica y eventos de conversión** — Umami en https://stats.psalazar.dev (Docker solo en 127.0.0.1:3001, detrás de Caddy) desde el 4 oct 2026; sitio `DHC Woodcraft` (ID en `.env.local`). Verificado en producción: pageview, `click_estimate_cta` y `click_call_es` aceptados. **Pendiente:** Search Console y Bing (guía `docs/08`, tarea 6)
+- [x] **T23 · Analítica y eventos de conversión** — Umami en https://stats.psalazar.dev (Docker solo en 127.0.0.1:3001, detrás de Caddy) desde el 4 oct 2026; sitio `DHC Woodcraft` (ID en `.env.local`). Verificado en producción: pageview, `click_estimate_cta` y `click_call_es` aceptados. Search Console y Bing: **pospuesto por decisión de Pablo** hasta tener los datos reales del cliente (guía `docs/08`, tarea 6)
   Umami (Docker + Postgres) en la VPS, publicado solo en `127.0.0.1:3001` y con límite de memoria; `stats.psalazar.dev` en Caddy y en DNS (gris). Script con `next/script` y atributos `data-umami-event` de `02`. Search Console con propiedad de prefijo de URL (archivo HTML en `public/`) y Bing Webmaster importando desde Search Console.
   ⚠️ Requiere que la VPS esté montada (T25, requisitos previos); si aún no lo está, hacer T23 después de T25.
   **Terminado:** en el panel de Umami aparecen una visita y cada uno de los eventos de prueba.

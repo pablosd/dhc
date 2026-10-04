@@ -25,7 +25,7 @@ Si en algún paso quieres que lo haga yo, dímelo con el número del paso.
 | 3 | Preparar la VPS | 30 min | Publicar |
 | 4 | Primer despliegue y comprobaciones | 15 min | — |
 | 5 | Umami (analítica) | 30–40 min | Medir visitas y llamadas |
-| 6 | Search Console y Bing | 15 min + esperar | SEO |
+| 6 | Search Console y Bing (**pospuesta** hasta tener los datos reales del cliente) | 15 min + esperar | SEO |
 | 7 | Revisión del español | cuando puedas | Salir de "vista previa" |
 | 8 | Cuestionario al dueño | cuando puedas | Salir de "vista previa", páginas por servicio |
 
@@ -354,11 +354,15 @@ Hace falta que un hablante nativo, idealmente de Texas, lea los textos en españ
 
 ## Tarea 8 · Cuestionario al dueño
 
-1. Envía la parte "Cuestionario" de `docs/07-cuestionario-dueno.md` (desde el título "Cuestionario — Sitio web de DHC…" hasta el final). Puede contestar por escrito, con notas de voz o en una llamada contigo.
-2. Pide también los archivos de la lista final: logo original, fotos con su descripción y reseñas con permiso.
-3. Cuando tengas las respuestas, pásamelas tal cual. Yo las vuelco en `site.ts` y en los textos (tarea T26), quito el modo "vista previa" y preparo las páginas por servicio (fase 1.5).
+1. Mándale por WhatsApp el enlace **https://dhc.psalazar.dev/cuestionario-dhc/** con un mensaje corto (te dejo uno abajo).
+2. Él responde en el móvil, por partes si quiere: el borrador se guarda en su teléfono.
+3. Al terminar pulsa **Enviar a Pablo**: te llega un correo con todas las respuestas (el mismo Web3Forms del sitio, a tu correo). Si algo fallara, puede **Compartir por WhatsApp**, **Copiar** o **Descargar documento** y mandártelo.
+4. El logo y las fotos te los manda por WhatsApp o por una carpeta de Google Drive (si me pasas el enlace de una carpeta compartida, aparece un botón en el cuestionario).
+5. Pásame las respuestas tal cual: las vuelco en `site.ts` y en los textos (T26), quito el modo "vista previa" y preparo las páginas por servicio (fase 1.5).
 
-Si prefieres mandarle algo más cómodo que un archivo Markdown (un documento para compartir o un formulario en línea), dímelo y lo preparo.
+Mensaje sugerido:
+
+> Hola, te paso el cuestionario para la web de DHC: https://dhc.psalazar.dev/cuestionario-dhc/ — son unos 30–40 minutos y puedes hacerlo por partes, se guarda solo en tu teléfono. Las preguntas con ★ son las importantes; si no sabes algo, déjalo en blanco. Cuando termines, dale a "Enviar a Pablo". Las fotos y el logo mándamelos por aquí. ¡Gracias!
 
 ---
 
