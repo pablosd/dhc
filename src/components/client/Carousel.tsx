@@ -134,7 +134,8 @@ export function Carousel({ label, labels, interval = 5000, children }: Props) {
     <div
       ref={rootRef}
       className={`carousel ${running ? "is-running" : ""}`}
-      role="region"
+      // group (no region): la sección ya es la región con el mismo nombre.
+      role="group"
       aria-roledescription={labels.carousel}
       aria-label={label}
       style={{ ["--interval" as string]: `${interval}ms` }}

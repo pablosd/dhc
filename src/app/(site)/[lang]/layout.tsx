@@ -48,7 +48,7 @@ export default async function SiteLayout({
         {/* Marca .js antes de pintar: las animaciones solo ocultan contenido con JS. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <SkipLink label={dict.a11y.skipLink} />
-        <DemoBanner text={dict.demoBanner} />
+        <DemoBanner text={dict.demoBanner} label={dict.demoBannerLabel} />
         <Header lang={lang} />
         {children}
         <Footer lang={lang} />

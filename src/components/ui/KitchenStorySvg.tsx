@@ -165,9 +165,7 @@ export function KitchenStorySvg({ planLabel }: Props) {
 
       {/* Techo machihembrado y vigas */}
       <A s={0.84} e={0.9} dy={-70} op>
-        {Array.from({ length: 45 }, (_, i) => (
-          <line key={i} x1={i * 18} y1="0" x2={i * 18} y2="40" stroke="#5a2d14" />
-        ))}
+        <rect y="0" width="800" height="40" fill={`url(#${ID}-tg)`} />
         <rect y="0" width="800" height="40" fill={`url(#${ID}-beam)`} opacity="0.55" />
         {[60, 300, 540].map((x) => (
           <rect key={x} x={x} y="40" width="200" height="16" fill={`url(#${ID}-beam)`} />

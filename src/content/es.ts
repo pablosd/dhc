@@ -31,7 +31,7 @@ const es: Dictionary = {
     callEs: "Llamar a DHC en español al {phoneEs}",
     whatsapp: "Escríbenos por WhatsApp", // TODO B2
     marqueePause: "Pausar animación",
-    logoHome: "DHC Woodcraft & Installation — inicio",
+    logoHome: "inicio",
     carousel: "carrusel",
     slide: "diapositiva",
     slideOf: "{n} de {total}",
@@ -41,7 +41,7 @@ const es: Dictionary = {
     resume: "Reanudar carrusel",
     goTo: "Ir a la {n}",
     flip: "Ver el después: {title}",
-    serviceChips: "Servicios",
+    serviceChips: "Ir a un servicio",
     cityList: "Ciudades que atendemos",
   },
 
@@ -52,6 +52,7 @@ const es: Dictionary = {
   },
 
   demoBanner: "Vista previa — algunos datos, reseñas y fotos son de ejemplo.",
+  demoBannerLabel: "Aviso de vista previa",
 
   nav: {
     services: "Servicios",

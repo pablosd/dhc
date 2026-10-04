@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   poweredByHeader: false,
   // 404 global con varios layouts raíz (docs/02 → Páginas 404).
-  experimental: { globalNotFound: true },
+  // inlineCss: el CSS va en el HTML (sin peticiones que bloqueen el render).
+  experimental: { globalNotFound: true, inlineCss: true },
 };
 
 export default nextConfig;

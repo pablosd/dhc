@@ -44,7 +44,7 @@ export function Reviews({ lang }: Props) {
             }}
           >
             {r.items.map((item, i) => (
-              <article
+              <div
                 key={item.project}
                 className="review-card"
                 role="group"
@@ -61,7 +61,7 @@ export function Reviews({ lang }: Props) {
                 <p className="review-who">
                   {r.sampleName} · {r.sampleArea} · {item.project}
                 </p>
-              </article>
+              </div>
             ))}
           </Carousel>
         ) : null}

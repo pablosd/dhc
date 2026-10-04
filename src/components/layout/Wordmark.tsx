@@ -2,6 +2,7 @@ import { site } from "@/content/site";
 
 type Props = {
   href: string;
+  /** Sufijo solo para lectores de pantalla: "inicio" / "home". */
   label: string;
   className?: string;
 };
@@ -9,13 +10,10 @@ type Props = {
 // Logotipo provisional en texto (docs/03 → Logo) hasta tener el vector (H3).
 export function Wordmark({ href, label, className = "" }: Props) {
   return (
-    <a href={href} aria-label={label} className={`wordmark ${className}`}>
-      <span className="wordmark-mark" aria-hidden="true">
-        {site.wordmark.mark}
-      </span>
-      <span className="wordmark-sub" aria-hidden="true">
-        {site.wordmark.sub}
-      </span>
+    <a href={href} className={`wordmark ${className}`}>
+      <span className="wordmark-mark">{site.wordmark.mark}</span>{" "}
+      <span className="wordmark-sub">{site.wordmark.sub}</span>
+      <span className="sr-only"> — {label}</span>
     </a>
   );
 }

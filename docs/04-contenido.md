@@ -46,7 +46,7 @@ Cada sección tiene un único H2. El H1 solo está en el hero. Referencia visual
 | a11y.callEs | Call DHC in Spanish at {phoneEs} | Llamar a DHC en español al {phoneEs} |
 | a11y.whatsapp **[TODO B2]** | Message us on WhatsApp | Escríbenos por WhatsApp |
 | a11y.marqueePause | Pause animation | Pausar animación |
-| a11y.logoHome | DHC Woodcraft & Installation — home | DHC Woodcraft & Installation — inicio |
+| a11y.logoHome | home | inicio |
 | a11y.carousel | carousel | carrusel |
 | a11y.slide | slide | diapositiva |
 | a11y.slideOf | {n} of {total} | {n} de {total} |
@@ -56,17 +56,18 @@ Cada sección tiene un único H2. El H1 solo está en el hero. Referencia visual
 | a11y.resume | Resume carousel | Reanudar carrusel |
 | a11y.goTo | Go to slide {n} | Ir a la {n} |
 | a11y.flip | See the after: {title} | Ver el después: {title} |
-| a11y.serviceChips | Services | Servicios |
+| a11y.serviceChips | Jump to a service | Ir a un servicio |
 | a11y.cityList | Cities we serve | Ciudades que atendemos |
 | sample.photo | Project photo | Foto del proyecto |
 | sample.review | Sample review | Reseña de ejemplo |
 
-El enlace del selector de idioma lleva `lang` y `hrefLang` del idioma de destino, por eso su `aria-label` está en ese idioma.
+El enlace del selector de idioma lleva `lang` y `hrefLang` del idioma de destino, por eso su `aria-label` está en ese idioma. `a11y.logoHome` es un sufijo solo para lectores de pantalla: el nombre del enlace del logo es su texto visible + " — inicio" (WCAG 2.5.3: el nombre accesible debe contener el texto visible).
 
 ## 0 · DemoBanner
 
 - EN: *Preview — some business details, reviews and photos are placeholders.*
 - ES: *Vista previa — algunos datos, reseñas y fotos son de ejemplo.*
+- Etiqueta de la región (`demoBannerLabel`): *Preview notice* / *Aviso de vista previa*.
 
 ## 1 · Header
 

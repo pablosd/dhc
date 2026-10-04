@@ -171,11 +171,11 @@ El elemento más distintivo del sitio. El fondo de la sección queda fijo (`posi
 |---|---|---|---|
 | Sobre oscuro | `rgba(20,18,16,.42)` + borde `rgba(242,182,109,.22)` | `blur(14px) saturate(140%)` | Tarjeta del hero |
 | Paneles del Proceso | `rgba(20,18,16,.62)`: con movimiento reducido o sin JS quedan sobre la cocina terminada (azulejo claro) | ídem | Paneles del Proceso |
-| Sobre el mapa (escritorio) | `rgba(20,18,16,.62)` + sombra de texto suave | `blur(5px) saturate(130%)` | Tarjeta de la zona de servicio |
+| Sobre el mapa (escritorio) | `rgba(20,18,16,.74)` + sombra de texto suave (con .62, axe da ~3,5:1 en el texto pequeño: no pasa AA) | `blur(5px) saturate(130%)` | Tarjeta de la zona de servicio |
 | Sobre el mapa (móvil) | `rgba(20,18,16,.8)` | ídem | Ídem |
 
 - `backdrop-filter` es caro en móviles modestos: solo en tarjetas, nunca en áreas a pantalla completa.
-- Contraste: texto `--cream` sobre la variante más transparente, en la zona más clara del mapa, ≈ 5:1 (pasa AA). Comprobar en T24.
+- Contraste comprobado con axe en T24: todas las variantes pasan AA.
 - Respaldo sin `backdrop-filter`: el fondo semitransparente sigue siendo legible.
 
 ## Antes y después

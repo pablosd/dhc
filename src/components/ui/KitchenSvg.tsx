@@ -149,6 +149,9 @@ export function KitchenDefs({ id }: { id: string }) {
         <stop offset="0" stopColor="#F2B66D" stopOpacity="0.75" />
         <stop offset="1" stopColor="#F2B66D" stopOpacity="0" />
       </radialGradient>
+      <pattern id={`${id}-tg`} width="18" height="40" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="40" stroke="#5a2d14" strokeWidth="1" />
+      </pattern>
       <pattern id={`${id}-grid`} width="20" height="20" patternUnits="userSpaceOnUse">
         <path d="M20 0H0V20" fill="none" stroke="#F2B66D" strokeOpacity="0.12" strokeWidth="1" />
       </pattern>
@@ -202,9 +205,7 @@ export function KitchenSvg({ mode, id, viewBox = "0 0 800 470", className, label
 
       {p.beams ? (
         <g>
-          {Array.from({ length: 45 }, (_, i) => (
-            <line key={i} x1={i * 18} y1="0" x2={i * 18} y2="40" stroke="#5a2d14" strokeWidth="1" />
-          ))}
+          <rect y="0" width="800" height="40" fill={`url(#${id}-tg)`} />
           <rect y="0" width="800" height="40" fill={`url(#${id}-beam)`} opacity="0.55" />
           {[60, 300, 540].map((x) => (
             <rect key={x} x={x} y="40" width="200" height="16" fill={`url(#${id}-beam)`} />

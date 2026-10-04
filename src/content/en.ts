@@ -33,7 +33,7 @@ const en = {
     callEs: "Call DHC in Spanish at {phoneEs}",
     whatsapp: "Message us on WhatsApp", // TODO B2
     marqueePause: "Pause animation",
-    logoHome: "DHC Woodcraft & Installation — home",
+    logoHome: "home",
     carousel: "carousel",
     slide: "slide",
     slideOf: "{n} of {total}",
@@ -43,7 +43,7 @@ const en = {
     resume: "Resume carousel",
     goTo: "Go to slide {n}",
     flip: "See the after: {title}",
-    serviceChips: "Services",
+    serviceChips: "Jump to a service",
     cityList: "Cities we serve",
   },
 
@@ -54,6 +54,7 @@ const en = {
   },
 
   demoBanner: "Preview — some business details, reviews and photos are placeholders.",
+  demoBannerLabel: "Preview notice",
 
   nav: {
     services: "Services",

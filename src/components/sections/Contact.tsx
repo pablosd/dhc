@@ -53,7 +53,6 @@ export function Contact({ lang }: Props) {
                 key={l}
                 href={`tel:${site.phones[l].e164}`}
                 className="line-card"
-                aria-label={t(l === "en" ? dict.a11y.callEn : dict.a11y.callEs)}
                 data-umami-event={`click_call_${l}`}
               >
                 <span className="line-card-label">{l === "en" ? e.contact.lineEn : e.contact.lineEs}</span>
