@@ -48,7 +48,7 @@ Prompt sugerido para cada sesión de Claude Code:
   Página temporal **`/en/styleguide/`** (no `_styleguide`: las carpetas con `_` no generan ruta), con `noindex` y fuera del sitemap. Muestra colores, tipografías y botones, y una comparación del texto en Barlow 400/600 frente a Inter para que Pablo elija. Es la única página exenta de la regla de diccionarios.
   **Terminado:** la styleguide se ve en `/en/styleguide/` y Pablo confirma la fuente del texto (la maqueta usa Barlow 400/600).
 
-- [ ] **T06 · Componentes UI e imágenes**
+- [x] **T06 · Componentes UI e imágenes**
   `Container`, `SectionHeading` (eyebrow + H2 + lead), `Button` (variantes de `03`), `Icon` (8 iconos de línea para los servicios más teléfono, flecha, check, menú, cerrar, WhatsApp, pausa/play, anterior/siguiente), `Photo`, `PhotoPlaceholder` (veta de madera e icono; acepta foto), el patrón SVG `WoodGrain` y `GlassCard` (variantes de `03` → Vidrio esmerilado). Script `scripts/optimize-images.mjs` (sharp como devDependency) según `02` → Imágenes.
   **Terminado:** todos visibles en la styleguide, accesibles por teclado y con AA. El script procesa una imagen de prueba y `Photo` la muestra con `srcset` sin CLS.
 
@@ -100,7 +100,7 @@ Prompt sugerido para cada sesión de Claude Code:
   ⚠️ Requiere que la VPS esté montada (T25, requisitos previos); si aún no lo está, hacer T23 después de T25.
   **Terminado:** en el panel de Umami aparecen una visita y cada uno de los eventos de prueba.
 - [ ] **T24 · Auditoría**
-  Lighthouse móvil en `/en/` y `/es/` (objetivos de `05`), axe sin violaciones serias, enlaces rotos, revisión del texto en español por un hablante nativo y **borrar la styleguide**.
+  Lighthouse móvil en `/en/` y `/es/` (objetivos de `05`), axe sin violaciones serias, enlaces rotos, revisión del texto en español por un hablante nativo y **borrar la styleguide** (también `interFont` si no se eligió Inter, y la imagen de prueba `styleguide-test` de `public/images/` y de `src/content/images.json`).
 - [ ] **T25 · Despliegue en la VPS**
   Seguir `02` → Hosting respetando las **reglas de convivencia con TTrack**. Comprobar los requisitos previos (runbook de TTrack, pasos 0–7). Instalar o reutilizar Caddy, añadir `sites/dhc.caddy` (validar y `reload`, nunca `restart`), `ufw allow 80,443/tcp`, crear `/var/www/dhc` (de `pablo`) y `deploy/deploy.sh`. DNS: `cf_dns.py add dhc A 152.53.39.211 --no-proxy` y `verify`. Enviar el sitemap a Search Console.
   **Terminado:** `https://dhc.psalazar.dev/` redirige según el idioma, `/en/xyz` devuelve 404 con la página en inglés, `curl -I` muestra las cabeceras de seguridad y caché, un despliegue nuevo se puede revertir cambiando el symlink y **TTrack sigue funcionando** (`systemctl status ttrack-poller` y las comprobaciones de `dns-y-credenciales.md` §5).

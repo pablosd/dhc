@@ -5,6 +5,11 @@ import type { Metadata } from "next";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 import { interFont } from "../../../fonts";
+import { Button } from "@/components/ui/Button";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { Icon, iconNames } from "@/components/ui/Icon";
+import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Styleguide · DHC",
@@ -131,6 +136,71 @@ export default async function StyleguidePage({ params }: PageProps<"/[lang]/styl
         <div className="surface-dark flex flex-wrap gap-3 rounded p-8">
           <a href="#sg-buttons" className="btn btn-primary">{dict.hero.ctaEstimate}</a>
           <a href="#sg-buttons" className="btn btn-light"><PhoneIcon />{dict.mobileBar.call}</a>
+        </div>
+      </section>
+
+      <section aria-labelledby="sg-components" className="grid gap-10">
+        <h2 id="sg-components">Componentes (T06)</h2>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Icon · {iconNames.length} iconos</p>
+          <ul className="grid grid-cols-[repeat(auto-fill,minmax(110px,1fr))] gap-3">
+            {iconNames.map((n) => (
+              <li key={n} className="grid justify-items-center gap-2 rounded border border-line bg-paper p-4 text-xs text-muted">
+                <Icon name={n} size={36} className="text-oak" />
+                {n}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="grid gap-4 rounded border border-line bg-paper p-6">
+          <p className="eyebrow">SectionHeading</p>
+          <SectionHeading id="sg-heading-demo" eyebrow={dict.services.eyebrow} title={dict.services.title} lead={dict.services.lead} />
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">Button</p>
+          <div className="flex flex-wrap gap-3">
+            <Button href="#sg-components">{dict.hero.ctaEstimate}</Button>
+            <Button href="#sg-components" variant="ghost" icon="arrowRight">{dict.services.learnMore}</Button>
+            <Button onClick={undefined}>{"<button>"}</Button>
+          </div>
+          <div className="surface-dark flex flex-wrap gap-3 rounded p-6">
+            <Button href="#sg-components">{dict.hero.ctaEstimate}</Button>
+            <Button href="#sg-components" variant="light" icon="phone">{dict.mobileBar.call}</Button>
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">GlassCard</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="relative overflow-hidden rounded p-8" style={{ background: "radial-gradient(60% 70% at 70% 20%, rgba(242,182,109,.35), transparent 60%), linear-gradient(120deg,#4E2512,#141210)" }}>
+              <GlassCard className="grid gap-3 p-6">
+                <p className="eyebrow">variant=&quot;dark&quot;</p>
+                <h3>{dict.process.steps[0].title}</h3>
+                <p className="lead">{dict.process.steps[0].text}</p>
+              </GlassCard>
+            </div>
+            <div className="relative overflow-hidden rounded bg-[#EFE5D5] p-8">
+              <div aria-hidden="true" className="absolute inset-0 grid grid-cols-3">
+                <span className="bg-[#7A3E1D]" /><span className="bg-[#C98B4F]" /><span className="bg-[#DCD0BE]" />
+              </div>
+              <GlassCard variant="map" className="relative grid gap-3 p-6">
+                <p className="eyebrow">variant=&quot;map&quot;</p>
+                <h3>{dict.areas.title}</h3>
+                <p className="lead">{dict.areas.lead}</p>
+              </GlassCard>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-4">
+          <p className="eyebrow">PhotoPlaceholder · sin foto y con foto (Photo + srcset)</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} />
+            <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} photo={{ name: "styleguide-test", alt: "Imagen de prueba de la styleguide", sizes: "(min-width: 768px) 50vw, 100vw" }} />
+          </div>
         </div>
       </section>
     </main>

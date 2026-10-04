@@ -1,0 +1,11 @@
+{
+  "styleguide-test": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      640,
+      960,
+      1600
+    ]
+  }
+}
