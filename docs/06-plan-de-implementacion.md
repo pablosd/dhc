@@ -63,7 +63,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T09 · Hero + marquee**
   Fondo (foto real si la hay; si no, ilustración de cocina) con degradado, entrada escalonada, acento del H1 en `--glow`, CTA de estimado y de llamada, `GlassCard` con las dos líneas y el CTA. Trust 3 solo si `site.ts` confirma seguro.
 - [x] **T10 · Servicios** (`ServiceChips` + 8 tarjetas con hover y reveal escalonado; solo los servicios activos en `site.ts`)
-- [ ] **T11 · Por qué DHC** (dos bloques `ZigZag`; estadísticas solo si `site.stats` tiene cifras confirmadas)
+- [x] **T11 · Por qué DHC** (dos bloques `ZigZag`; estadísticas solo si `site.stats` tiene cifras confirmadas)
 - [ ] **T12 · Proceso: la cocina que se arma**
   `KitchenSvg` (Server Component, con los `data-*` de `03` → Firma), escenario `sticky`, paneles `GlassCard`, indicador de paso y el componente cliente `ScrollStory`. Partir de la cocina de la maqueta.
   **Terminado (además del común):** las 4 etapas coinciden con sus paneles; con `prefers-reduced-motion` y sin JS se ve la cocina terminada; scroll fluido en un móvil de gama media (sin tirones visibles en el perfil de rendimiento).

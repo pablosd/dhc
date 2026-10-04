@@ -222,7 +222,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Cg fill='none' stroke='%23B8692F' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3Cellipse cx='150' cy='56' rx='18' ry='6'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B8692F' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3Cellipse cx='150' cy='56' rx='18' ry='6'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 300px 75px;
     opacity: 0.35;
   }
@@ -309,7 +309,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Cg fill='none' stroke='%23F2B66D' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23F2B66D' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 240px 60px;
   opacity: 0.12;
 }
@@ -968,7 +968,7 @@ body:not(:has(.hero)) .site-header {
   bottom: -40%;
   width: 70%;
   height: 70%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120'%3E%3Cg fill='none' stroke='%23B8692F' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120' viewBox='0 0 240 120' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23B8692F' stroke-width='1'%3E%3Cpath d='M0 20 C60 8 120 32 240 18'/%3E%3Cpath d='M0 44 C70 30 140 58 240 40'/%3E%3Cpath d='M0 70 C50 60 150 86 240 66'/%3E%3Cpath d='M0 96 C80 84 160 108 240 92'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 240px 60px;
   opacity: 0.07;
   transform: rotate(-8deg);
@@ -1030,4 +1030,81 @@ body:not(:has(.hero)) .site-header {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+/* ---------- Por qué DHC (docs/04 §5) ---------- */
+
+.zigzag {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
+
+.zigzag-reverse .zigzag-media {
+  order: 2;
+}
+
+@media (max-width: 820px) {
+  .zigzag {
+    grid-template-columns: 1fr;
+  }
+
+  .zigzag-reverse .zigzag-media {
+    order: 0;
+  }
+}
+
+.zigzag-text {
+  display: grid;
+  gap: 1rem;
+}
+
+.check-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 0.6rem;
+}
+
+.check-list svg {
+  margin-top: 0.2em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.stat {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-oak);
+}
+
+.stat dd {
+  order: -1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  line-height: 1;
+  color: var(--color-walnut);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat dt {
+  color: var(--color-muted);
+  font-weight: 600;
 }
