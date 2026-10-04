@@ -1400,3 +1400,217 @@ body:not(:has(.hero)) .site-header {
   color: var(--color-muted);
   font-size: 0.88rem;
 }
+
+/* ---------- Zona de servicio: mapa (docs/03 → Mapa) ---------- */
+
+.areas {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: clamp(56px, 7vw, 96px);
+  background: var(--color-cream);
+}
+
+.areas-map {
+  position: absolute;
+  top: 0;
+  right: max(0px, calc((100% - var(--container-site)) / 2));
+  bottom: 0;
+  z-index: -1;
+  width: min(100%, 820px);
+  /* Difumina los bordes laterales del fondo de condados. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 22%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 22%, #000 90%, transparent);
+}
+
+.area-map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* El contenedor de la tarjeta no debe tapar el mapa al puntero. */
+.areas-inner {
+  display: flex;
+  align-items: center;
+  min-height: min(760px, 92vh);
+  pointer-events: none;
+}
+
+.areas-card {
+  display: grid;
+  gap: 1rem;
+  max-width: 440px;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  pointer-events: auto;
+}
+
+.city-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.city-list li {
+  padding: 0.38em 0.75em;
+  border: 1px solid rgb(247 241 232 / 0.2);
+  border-radius: 999px;
+  background: rgb(247 241 232 / 0.05);
+  color: #e9dfd2;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: default;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background-color 0.2s;
+}
+
+.city-list li.is-on {
+  border-color: var(--color-glow);
+  background: rgb(242 182 109 / 0.1);
+  color: var(--color-glow);
+}
+
+.area-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #e9dfd2;
+  font-size: 0.82rem;
+}
+
+.area-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.area-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.swatch-served { background: #9c5a2c; }
+.swatch-ask { background: #dcd0be; }
+.swatch-base { width: 10px !important; border-radius: 50% !important; background: var(--color-glow); }
+
+.areas-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.area-county {
+  fill: #efe5d5;
+  stroke: #dccdb3;
+  stroke-width: 1.2;
+}
+
+.area-shadow {
+  fill: var(--color-walnut-deep);
+  opacity: 0.12;
+}
+
+.area-outline {
+  fill: none;
+  stroke: var(--color-walnut-deep);
+  stroke-width: 1.5;
+  stroke-opacity: 0.5;
+  pointer-events: none;
+}
+
+.area-zone path {
+  stroke: var(--color-cream);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  transition: fill 0.25s;
+}
+
+.area-zone.is-served {
+  cursor: pointer;
+}
+
+/* Entrada: se observa el mapa entero y las zonas aparecen escalonadas. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .area-zones[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js .area-zones .area-zone {
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-craft) var(--delay, 0s);
+  }
+
+  .js .area-zones.is-visible .area-zone {
+    opacity: 1;
+  }
+}
+
+.area-zone.is-served:hover path,
+.area-zone.is-on path {
+  fill: var(--color-glow);
+}
+
+.area-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: var(--color-cream);
+  pointer-events: none;
+}
+
+.area-label.is-ask {
+  fill: #8a7f72;
+  font-size: 12px;
+}
+
+.area-label.is-small {
+  font-size: 11px;
+}
+
+.area-meta {
+  fill: #8a7f72;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.area-meta line {
+  stroke: #8a7f72;
+  stroke-width: 2;
+}
+
+@media (max-width: 900px) {
+  .areas-map {
+    position: relative;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 843 / 968;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .areas-inner {
+    display: block;
+    min-height: 0;
+    margin-top: -28%;
+  }
+
+  .areas-card {
+    max-width: none;
+  }
+}

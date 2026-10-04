@@ -1,0 +1,28 @@
+{
+  "_comment": "Ciudades candidatas del mapa: coordenadas del centro y peso (Austin pesa más para que su zona sea proporcional). Cuáles van en color lo decide site.areas en src/content/site.ts. Tras cambiar esta lista: npm run geo.",
+  "cities": [
+    { "name": "Austin", "lat": 30.285, "lon": -97.745, "weight": 2.6 },
+    { "name": "Round Rock", "lat": 30.508, "lon": -97.679, "weight": 1 },
+    { "name": "Cedar Park", "lat": 30.505, "lon": -97.82, "weight": 1 },
+    { "name": "Georgetown", "lat": 30.633, "lon": -97.678, "weight": 1.3 },
+    { "name": "Pflugerville", "lat": 30.439, "lon": -97.62, "weight": 1 },
+    { "name": "Leander", "lat": 30.579, "lon": -97.853, "weight": 1.1 },
+    { "name": "Lakeway", "lat": 30.364, "lon": -97.98, "weight": 1.1 },
+    { "name": "Bee Cave", "lat": 30.3, "lon": -97.945, "weight": 0.9 },
+    { "name": "West Lake Hills", "lat": 30.297, "lon": -97.802, "weight": 0.55 },
+    { "name": "Dripping Springs", "lat": 30.19, "lon": -98.087, "weight": 1.4 },
+    { "name": "Buda", "lat": 30.085, "lon": -97.84, "weight": 1.1 },
+    { "name": "Kyle", "lat": 29.989, "lon": -97.877, "weight": 1.1 },
+    { "name": "Manor", "lat": 30.341, "lon": -97.557, "weight": 1.2 },
+    { "name": "Hutto", "lat": 30.543, "lon": -97.546, "weight": 1 },
+    { "name": "Taylor", "lat": 30.571, "lon": -97.409, "weight": 1.4 },
+    { "name": "San Marcos", "lat": 29.883, "lon": -97.941, "weight": 1.4 },
+    { "name": "Jarrell", "lat": 30.82, "lon": -97.6, "weight": 1.4 },
+    { "name": "Liberty Hill", "lat": 30.665, "lon": -97.922, "weight": 1.1 },
+    { "name": "Lago Vista", "lat": 30.46, "lon": -97.99, "weight": 1 },
+    { "name": "Wimberley", "lat": 29.997, "lon": -98.098, "weight": 1.3 }
+  ],
+  "_overrides": "Sectores que quedarían como isla suelta de una zona: se reasignan a la siguiente ciudad más cercana.",
+  "overrides": [{ "zone": "Kyle", "lonLessThan": -97.92 }],
+  "base": { "name": "Austin", "lat": 30.267, "lon": -97.743 }
+}

@@ -2,7 +2,7 @@
 
 Genera las formas del mapa de "Zona de servicio" (ver `docs/03-diseno.md` → Mapa). Se ejecuta **solo cuando cambian las ciudades** (respuesta `F1` del cuestionario), no en cada build. El resultado (paths SVG ya proyectados, ~16 KB) se guarda en el repo; los datos descargados no.
 
-Estos scripts vienen de la maqueta (`docs/mockups/maqueta-v1.html`). En T15 se adaptan para escribir `src/content/area-map.ts` y se añade el script `npm run geo`.
+Uso: `npm run geo` (descarga los datos si faltan, genera `src/content/area-map.ts` y comprueba que ninguna zona quede partida). Las ciudades candidatas, sus coordenadas, pesos y correcciones de islas están en `cities.json`.
 
 ## Datos (dominio público, censo de EE. UU.)
 

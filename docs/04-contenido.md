@@ -233,7 +233,7 @@ Zona de todas: *Austin area* / *Zona de Austin*. Presentación: `Carousel` de `R
 - lead ES: *Estamos en Austin y trabajamos en todo Texas central. ¿No ves tu ciudad? Llámanos y te decimos enseguida si podemos ayudarte.*
 - Propuesta de lista (zonas en color): Austin, Round Rock, Cedar Park, Georgetown, Pflugerville, Leander, Lakeway, Bee Cave, West Lake Hills, Dripping Springs, Buda, Kyle, Manor, Hutto.
 - Zonas "consúltanos" (en gris): Jarrell, Liberty Hill, Lago Vista, Wimberley, San Marcos, Taylor.
-- Presentación: `AreaMap` (ver `03` → Mapa) con la tarjeta de vidrio encima. La tarjeta lleva eyebrow, H2, lead, la lista de ciudades atendidas como botones de texto (aportan SEO), la leyenda y los dos CTA. Esta sección sustituye al bloque de CTA separado.
+- Presentación: `AreaMap` (ver `03` → Mapa) con la tarjeta de vidrio encima. La tarjeta lleva eyebrow, H2, lead, la lista de ciudades atendidas como texto (aporta SEO), la leyenda y los dos CTA. Esta sección sustituye al bloque de CTA separado.
 
 | Clave | EN | ES |
 |---|---|---|

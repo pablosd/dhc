@@ -207,7 +207,7 @@ Referencia: `docs/mockups/mapa-zonas.png`. Generación de datos: `scripts/geo/RE
 - **Son zonas ilustrativas**, no límites legales; no se presentan como tales.
 - **Colores:** zonas atendidas en tonos de madera (`#7A3E1D`, `#8a4a22`, `#9c5a2c`, `#B8692F`, `#C98B4F`, `#D49A5E`, `#6b361a`), sin repetir tono entre vecinas; zonas "consúltanos" en `#DCD0BE` con etiqueta `#8a7f72`; bordes entre zonas `--cream` 2 px; contorno exterior nogal al 50 % con sombra suave. Austin lleva una estrella `--glow` ("Base").
 - **Etiquetas:** nombre de la zona en Barlow Condensed 700, mayúsculas, color crema dentro de cada zona.
-- **Interacción:** hover en una zona la ilumina en `--glow` y marca su ciudad en la lista de la tarjeta; hover/foco en la lista ilumina la zona.
+- **Interacción:** hover en una zona la ilumina en `--glow` y marca su ciudad en la lista de la tarjeta; hover en la lista ilumina la zona. La lista es texto (no botones): el resaltado es un apoyo visual, la información ya está en la lista.
 - **Entrada:** las zonas aparecen una a una (`RevealObserver`). Con `prefers-reduced-motion`, aparecen sin animación.
 - **Layout:** fondo de sección `--cream`; el mapa ocupa el lado derecho y la `GlassCard` (título, texto, lista de ciudades como botones, leyenda y los dos CTA) se superpone a la izquierda. En móvil, el mapa va arriba y la tarjeta se monta sobre su parte inferior.
 - El contenedor de la tarjeta no debe interceptar el puntero sobre el mapa (`pointer-events: none` en el contenedor, `auto` en la tarjeta).
