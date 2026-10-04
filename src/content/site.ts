@@ -27,6 +27,8 @@ export const site = {
   shortName: "DHC Woodcraft",
   legalName: null as string | null, // TODO(confirmar) A2
   slogan: "Custom Build • Install • Remodel",
+  /** Wordmark provisional hasta tener el logo en vector (docs/03 → Logo, H3). */
+  wordmark: { mark: "DHC", sub: "Woodcraft & Installation" },
   url: "https://dhc.psalazar.dev", // dominio inicial (docs/01 → Decisiones)
 
   /** Muestra la franja "Vista previa". Pasar a false en T26. */
