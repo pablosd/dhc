@@ -43,7 +43,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque B · Sistema de diseño
 
-- [ ] **T05 · Tokens, fuentes y estilos base**
+- [x] **T05 · Tokens, fuentes y estilos base** — hecho; **pendiente:** Pablo elige Barlow o Inter para el texto en `/en/styleguide/` (por defecto Barlow, como la maqueta)
   Paleta de `03` como variables CSS y tema de Tailwind (`@theme`). Fuentes Barlow Condensed 700, Barlow 400 y Barlow 600 (`.woff2` latin + `OFL.txt`) con `next/font/local`, escala tipográfica fluida, foco visible, `SkipLink`, `scroll-margin-top` y el bloque `prefers-reduced-motion`.
   Página temporal **`/en/styleguide/`** (no `_styleguide`: las carpetas con `_` no generan ruta), con `noindex` y fuera del sitemap. Muestra colores, tipografías y botones, y una comparación del texto en Barlow 400/600 frente a Inter para que Pablo elija. Es la única página exenta de la regla de diccionarios.
   **Terminado:** la styleguide se ve en `/en/styleguide/` y Pablo confirma la fuente del texto (la maqueta usa Barlow 400/600).

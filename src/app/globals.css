@@ -1,3 +1,214 @@
 @import "tailwindcss";
 
-/* Tokens de diseño, fuentes y estilos base: T05 (ver docs/03-diseno.md). */
+/* Tokens de diseño (docs/03-diseno.md → Paleta). Generan utilidades de
+   Tailwind: bg-ink, text-walnut, border-line, etc. */
+@theme {
+  --color-ink: #141210;
+  --color-ink-soft: #2a2622;
+  --color-walnut: #7a3e1d;
+  --color-walnut-deep: #4e2512;
+  --color-oak: #b8692f;
+  --color-glow: #f2b66d;
+  --color-cream: #f7f1e8;
+  --color-paper: #ffffff;
+  --color-stone: #a39b91;
+  --color-line: #e4dacb;
+  --color-muted: #5e554c;
+
+  --ease-craft: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --container-site: 1200px;
+}
+
+/* Las familias vienen de next/font (variables en <html>), por eso `inline`. */
+@theme inline {
+  --font-display: var(--font-display-face), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-body-face), system-ui, sans-serif;
+}
+
+:root {
+  /* Alturas que usan las anclas para no quedar tapadas (docs/03 → Layout). */
+  --header-h: 72px;
+  --demo-h: 0px;
+  /* Color del anillo de foco; las superficies oscuras lo cambian a glow. */
+  --focus-ring: var(--color-walnut);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: 0.005em;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  section[id] {
+    scroll-margin-top: calc(var(--header-h) + var(--demo-h) + 12px);
+  }
+}
+
+@layer components {
+  /* Superficies oscuras: texto crema y foco glow (contraste AA). */
+  .surface-dark {
+    --focus-ring: var(--color-glow);
+    background: var(--color-ink);
+    color: var(--color-cream);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-walnut);
+  }
+
+  .surface-dark .eyebrow {
+    color: var(--color-glow);
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--color-muted);
+    max-width: 60ch;
+  }
+
+  .surface-dark .lead {
+    color: var(--color-stone);
+  }
+
+  /* Botones (docs/03 → Componentes): altura mínima 48 px. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6em;
+    min-height: 48px;
+    padding: 0.7em 1.4em;
+    border: 1.5px solid transparent;
+    border-radius: 3px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background-color 0.2s var(--ease-craft),
+      border-color 0.2s var(--ease-craft),
+      transform 0.2s var(--ease-craft);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+    flex: none;
+  }
+
+  .btn-primary {
+    background: var(--color-walnut);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-walnut-deep);
+  }
+
+  .btn-light {
+    background: transparent;
+    color: var(--color-cream);
+    border-color: rgb(247 241 232 / 0.5);
+  }
+
+  .btn-light:hover {
+    background: rgb(247 241 232 / 0.1);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-walnut);
+    border-color: var(--color-line);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-oak);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 12px;
+    top: -100px;
+    z-index: 100;
+    padding: 0.75em 1.1em;
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-weight: 600;
+    border-radius: 3px;
+  }
+
+  .skip-link:focus {
+    top: 12px;
+  }
+}
+
+/* Movimiento reducido: todo aparece sin animación (docs/03 → Animaciones). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
