@@ -70,7 +70,7 @@ const nextConfig: NextConfig = {
 │   │   │   ├── page.tsx              # la landing (compone las secciones)
 │   │   │   ├── not-found.tsx         # para notFound() dentro de [lang]
 │   │   │   ├── page-not-found/page.tsx   # 404 por idioma que sirve Caddy (noindex)
-│   │   │   ├── styleguide/page.tsx   # TEMPORAL (T05–T24), noindex, fuera del sitemap
+│   │   │   ├── styleguide/page.dev.tsx  # solo en desarrollo (npm run dev; pageExtensions), noindex
 │   │   │   └── [section]/[service]/page.tsx  # fase 1.5: páginas por servicio
 │   │   ├── sitemap.ts                # force-static, con alternates hreflang
 │   │   └── robots.ts                 # force-static

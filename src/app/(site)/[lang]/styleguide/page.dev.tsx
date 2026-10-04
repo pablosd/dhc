@@ -1,10 +1,11 @@
-// TEMPORAL (T05–T24): guía visual de tokens, tipografía y componentes.
-// noindex, fuera del sitemap, se borra en T24. Única página exenta de la regla
+// Guía visual de tokens, tipografía y componentes. SOLO EN DESARROLLO: la
+// extensión .dev.tsx solo cuenta en `next dev` (pageExtensions en
+// next.config.ts), así que el build de producción no la genera (decisión de Pablo: se conserva para uso
+// futuro). noindex, fuera del sitemap. Única página exenta de la regla
 // "todo el texto sale de los diccionarios" (CLAUDE.md, regla 3).
 import type { Metadata } from "next";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
-import { interFont } from "../../../fonts";
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Icon, iconNames } from "@/components/ui/Icon";
@@ -51,7 +52,9 @@ const PhoneIcon = () => (
   </svg>
 );
 
-export default async function StyleguidePage({ params }: PageProps<"/[lang]/styleguide">) {
+// Parámetros tipados a mano: en producción la ruta no existe y no hay
+// PageProps<"/[lang]/styleguide"> generado.
+export default async function StyleguidePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
@@ -112,24 +115,6 @@ export default async function StyleguidePage({ params }: PageProps<"/[lang]/styl
         </div>
       </section>
 
-      <section aria-labelledby="sg-compare" className="grid gap-6">
-        <h2 id="sg-compare">Texto: Barlow o Inter</h2>
-        <p className="lead">Los títulos siguen en Barlow Condensed. Compara solo el texto corrido y elige una.</p>
-        <div className="grid gap-6 md:grid-cols-2">
-          <article className="grid gap-3 rounded border border-line bg-paper p-6">
-            <p className="eyebrow">A · Barlow 400 / 600 (actual)</p>
-            <h3>{dict.about.blocks[0].title}</h3>
-            <p>{sample}</p>
-            <p><b>{dict.about.blocks[0].points[0].title}.</b> {dict.about.blocks[0].points[0].text}</p>
-          </article>
-          <article className={`${interFont.variable} grid gap-3 rounded border border-line bg-paper p-6`} style={{ fontFamily: "var(--font-inter-face), system-ui, sans-serif" }}>
-            <p className="eyebrow" style={{ fontFamily: "inherit" }}>B · Inter (variable)</p>
-            <h3>{dict.about.blocks[0].title}</h3>
-            <p>{sample}</p>
-            <p><b>{dict.about.blocks[0].points[0].title}.</b> {dict.about.blocks[0].points[0].text}</p>
-          </article>
-        </div>
-      </section>
 
       <section aria-labelledby="sg-buttons" className="grid gap-6">
         <h2 id="sg-buttons">Botones</h2>

@@ -17,8 +17,7 @@ const font = (file: string) => `data:font/woff2;base64,${readFileSync(join(ROOT,
 
 const fontFaces = `
 @font-face { font-family: "BC"; src: url(${font("barlow-condensed-700.woff2")}) format("woff2"); font-weight: 700; }
-@font-face { font-family: "B"; src: url(${font("barlow-400.woff2")}) format("woff2"); font-weight: 400; }
-@font-face { font-family: "B"; src: url(${font("barlow-600.woff2")}) format("woff2"); font-weight: 600; }`;
+@font-face { font-family: "B"; src: url(${font("inter-variable.woff2")}) format("woff2"); font-weight: 100 900; }`;
 
 function ogHtml(lang: "en" | "es") {
   const dict = getDictionary(lang);

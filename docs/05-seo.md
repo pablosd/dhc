@@ -142,7 +142,7 @@ Presupuesto por página:
 | JS propio (sin el runtime de Next) | ≤ 15 KB gzip |
 | JS de terceros | Solo Umami (~2 KB), con `defer` |
 | CSS | ≤ 30 KB gzip |
-| Fuentes | 3 archivos woff2 (ver `03`), precarga solo de Barlow Condensed 700 y Barlow 400 |
+| Fuentes | 2 archivos woff2: Barlow Condensed 700 (~15 KB) e Inter variable (~48 KB), ambas precargadas (ver `03`) |
 | Imagen LCP | ≤ 200 KB, con `priority` |
 | Lighthouse móvil | Perf ≥ 90 · SEO 100 · A11y ≥ 95 · BP ≥ 95 |
 | CWV | LCP < 2.5 s · CLS < 0.1 · INP < 200 ms |

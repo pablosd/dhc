@@ -88,7 +88,7 @@ La arquitectura de las fases 1 y 1.5 debe permitir la fase 2 **sin reescribir co
 | Dominio | **`dhc.psalazar.dev`** (subdominio de Pablo) como decisión inicial. DNS en Cloudflare, registro en gris | `02` → Hosting. Si DHC tiene dominio propio más adelante: `02` → Migración |
 | Formulario | **Web3Forms** + *honeypot* antispam | `02` → Formulario |
 | Analítica | **Umami** autoalojado en `stats.psalazar.dev` + Google Search Console | `02` → Analítica |
-| Tipografía | Familia **Barlow**: Barlow Condensed 700 (títulos) + Barlow 400/600 (texto y etiquetas). 3 archivos. Sin serif | `03`. Se puede comparar con Inter en la styleguide (T05) |
+| Tipografía | **Barlow Condensed 700** (títulos) + **Inter** variable (texto, etiquetas y botones). 2 archivos. Sin serif. Elegida por Pablo el 4 oct 2026 viendo la comparación en la styleguide | `03` |
 | Páginas por servicio | Fase 1.5, estáticas | Arriba |
 | Diseño visual | **Maqueta v1 aprobada** (4 oct 2026): cocina que se arma con el scroll, vidrio esmerilado, antes/después que se voltea en carrusel, reseñas en carrusel y mapa de zonas sin huecos | `03`, `docs/mockups/maqueta-v1.html` |
 

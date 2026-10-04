@@ -48,24 +48,22 @@ Solo tema claro con secciones oscuras alternadas. Por ahora no hay modo oscuro a
 
 ## Tipografía
 
-**Decisión:** una sola familia, **Barlow**, coherente con el "WOODCRAFT & INSTALLATION" del logo. Sin serif. Tres archivos en total.
+**Decisión (Pablo, 4 oct 2026):** Barlow Condensed para títulos, coherente con el "WOODCRAFT & INSTALLATION" del logo, e **Inter** para el texto, más neutra y legible en párrafos. Sin serif. Dos archivos en total. Se comparó con Barlow 400/600 en la styleguide (captura en `docs/mockups/comparacion-fuentes.png`).
 
 | Rol | Fuente | Archivo |
 |---|---|---|
-| Display / títulos (H1–H3), números de estadísticas | **Barlow Condensed 700** | `barlow-condensed-700.woff2` |
-| Texto | **Barlow 400** | `barlow-400.woff2` |
-| Eyebrows, botones, etiquetas, negritas | **Barlow 600** (eyebrows en MAYÚSCULAS, `letter-spacing: .18em`, como "CUSTOM BUILD • INSTALL • REMODEL") | `barlow-600.woff2` |
+| Display / títulos (H1–H3), números de estadísticas, wordmark | **Barlow Condensed 700** | `barlow-condensed-700.woff2` |
+| Texto, eyebrows, botones, etiquetas, negritas | **Inter** variable (400 texto, 600 etiquetas y negritas; eyebrows en MAYÚSCULAS, `letter-spacing: .18em`) | `inter-variable.woff2` |
 
-- Origen: Google Fonts / Fontsource (licencia SIL OFL; se incluye `OFL.txt` junto a los archivos). Subconjunto **latin**, que incluye á, é, í, ó, ú, ñ, ü, ¿ y ¡.
-- Carga con `next/font/local`. Precarga solo de Barlow Condensed 700 (la del H1) y Barlow 400.
+- Origen: Google Fonts (licencia SIL OFL; `OFL-Barlow.txt` y `OFL-Inter.txt` junto a los archivos). Subconjunto **latin**, que incluye á, é, í, ó, ú, ñ, ü, ¿ y ¡.
+- Carga con `next/font/local`; las dos se precargan (son las del contenido inicial).
 - **Sin cursivas:** no se carga ninguna itálica y el navegador las falsearía. El acento emotivo del H1 ("*built to last*") se hace con **color `--glow`**, no con cursiva.
 - Escala fluida con `clamp()`: H1 `clamp(2.6rem, 6vw, 5rem)`, H2 `clamp(2rem, 4vw, 3.2rem)`, H3 `1.5rem`, texto `1.0625rem` con `line-height: 1.6`.
-- **Alternativa a comparar en T05:** Inter (variable) para el texto en lugar de Barlow 400/600. La styleguide muestra las dos para decidir viendo algo real. Si se elige Inter, el total sigue siendo 3 archivos (Barlow Condensed 700 + Barlow 600 + Inter variable).
 
 ## Logo
 
 - Header: emblema "DHC" + "Woodcraft & Installation". **Requiere logo en vector o PNG transparente** (`H3`). El de la tarjeta es una imagen muy detallada (casa, madera, cocina) que no escala bien a tamaño de header ni de favicon. Lo más probable es que haya que **redibujar una versión simplificada en vector**.
-- Mientras tanto, un *wordmark* temporal en texto: "DHC" en Barlow Condensed 700 y debajo "WOODCRAFT & INSTALLATION" en Barlow 600 pequeño.
+- Mientras tanto, un *wordmark* temporal en texto: "DHC" en Barlow Condensed 700 y debajo "WOODCRAFT & INSTALLATION" en Inter 600 pequeño.
 - Favicon / `icon.svg`: monograma "DHC" sobre fondo `--ink`.
 - **No** usar la tarjeta completa (con teléfonos) como logo en la web.
 

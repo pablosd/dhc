@@ -1,8 +1,9 @@
 import localFont from "next/font/local";
 
-// Familia Barlow (docs/03 → Tipografía): 3 archivos, subconjunto latino
-// (incluye á é í ó ú ñ ü ¿ ¡). Licencia SIL OFL: fonts/OFL-Barlow.txt.
+// Tipografía (docs/03 → Tipografía): 2 archivos, subconjunto latino
+// (incluye á é í ó ú ñ ü ¿ ¡). Licencias SIL OFL en fonts/OFL-*.txt.
 
+// Títulos (H1–H3), números y wordmark.
 export const displayFont = localFont({
   src: "./fonts/barlow-condensed-700.woff2",
   weight: "700",
@@ -12,21 +13,12 @@ export const displayFont = localFont({
   fallback: ["Arial Narrow", "sans-serif"],
 });
 
+// Texto, eyebrows, botones y etiquetas: Inter variable (un archivo, todos los pesos).
 export const bodyFont = localFont({
-  src: [
-    { path: "./fonts/barlow-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/barlow-600.woff2", weight: "600", style: "normal" },
-  ],
+  src: "./fonts/inter-variable.woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-body-face",
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
-});
-
-// Solo para comparar en la styleguide (T05). Se borra cuando Pablo elija.
-export const interFont = localFont({
-  src: "./fonts/inter-variable.woff2",
-  weight: "100 900",
-  variable: "--font-inter-face",
-  display: "swap",
-  preload: false,
 });
