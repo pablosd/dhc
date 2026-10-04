@@ -1,5 +1,18 @@
-// La landing se compone con las secciones en T08–T18.
-// Hasta T03 no hay diccionarios: este marcador no muestra texto.
-export default function LandingPage() {
-  return <main id="main" />;
+import { notFound } from "next/navigation";
+import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/ui/Marquee";
+import { getDictionary, hasLocale } from "@/lib/i18n";
+
+// La landing: compone las secciones en el orden de docs/04.
+export default async function LandingPage({ params }: PageProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const dict = getDictionary(lang);
+
+  return (
+    <main id="main">
+      <Hero lang={lang} />
+      <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
+    </main>
+  );
 }

@@ -60,7 +60,7 @@ Prompt sugerido para cada sesión de Claude Code:
 
 - [x] **T08 · Header, menú móvil, selector de idioma y DemoBanner**
   Header fijo que cambia al hacer scroll, menú en el orden de la página, teléfono del idioma, CTA, `MobileMenu` accesible (foco atrapado, Esc, `aria-expanded`) y `LanguageSwitch` con `hrefLang` y `lang`.
-- [ ] **T09 · Hero + marquee**
+- [x] **T09 · Hero + marquee**
   Fondo (foto real si la hay; si no, ilustración de cocina) con degradado, entrada escalonada, acento del H1 en `--glow`, CTA de estimado y de llamada, `GlassCard` con las dos líneas y el CTA. Trust 3 solo si `site.ts` confirma seguro.
 - [ ] **T10 · Servicios** (`ServiceChips` + 8 tarjetas con hover y reveal escalonado; solo los servicios activos en `site.ts`)
 - [ ] **T11 · Por qué DHC** (dos bloques `ZigZag`; estadísticas solo si `site.stats` tiene cifras confirmadas)
