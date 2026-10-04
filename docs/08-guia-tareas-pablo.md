@@ -47,9 +47,11 @@ Debe decir `active`. (Si aún no mudaste el poller de TTrack a la VPS, dirá `in
 
 El sitio es estático: cuando alguien pide un estimado, Web3Forms recibe el formulario y lo manda por correo.
 
-1. Entra en <https://web3forms.com> y pulsa **Create your Access Key** (o similar).
-2. Escribe el correo que debe **recibir los pedidos**. Si aún no tenemos el del dueño (pregunta I2), usa el tuyo y lo cambiamos después.
-3. Te llega un correo con la **Access Key** (una cadena larga tipo `a1b2c3d4-…`). Es pública por diseño: no pasa nada porque vaya en el código del navegador.
+1. Entra en <https://web3forms.com> y crea una cuenta (para las pruebas, con tu correo; cuando el sitio sea del cliente, se crea otro formulario con el correo del dueño, pregunta I2).
+2. **Create Your First Form**:
+   - **Form Name:** `DHC Woodcraft (pruebas)`.
+   - **Website URL:** `localhost` para la prueba en tu Mac. **Al publicar**, cambia (o añade) `dhc.psalazar.dev` en la configuración del formulario: si Web3Forms filtra por sitio, los envíos desde el dominio real fallarían con `localhost`.
+3. En el paso siguiente te da la **Access Key** (una cadena larga tipo `a1b2c3d4-…`). Es pública por diseño: no pasa nada porque vaya en el código del navegador. Los pedidos llegan al correo de la cuenta.
 4. Revisa en su web los límites del plan gratuito (envíos al mes) por si acaso.
 5. En tu Mac, dentro del proyecto, crea el archivo `.env.local` (no se sube a git):
 
@@ -67,7 +69,7 @@ npm run build && npx serve out -l 4173
 
 Abre <http://localhost:4173/es/#estimado>, rellena el formulario con datos de prueba y envíalo. Debe aparecer "¡Gracias! Te contactaremos pronto." y llegarte un correo (mira también en spam). Para parar el servidor: `Ctrl+C`.
 
-**Si falla:** aparece "Algo salió mal. Llámanos al…". Revisa que la clave esté bien copiada, sin espacios, y que hiciste `npm run build` **después** de guardar `.env.local`.
+**Si falla:** aparece "Algo salió mal. Llámanos al…". Revisa que la clave esté bien copiada, sin espacios, que hiciste `npm run build` **después** de guardar `.env.local` y que la Website URL del formulario en Web3Forms coincide con donde pruebas (`localhost` en local, `dhc.psalazar.dev` publicado).
 
 ---
 
