@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { RevealObserver } from "@/components/client/RevealObserver";
 import { DemoBanner } from "@/components/layout/DemoBanner";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { getDictionary, hasLocale, htmlLang, locales } from "@/lib/i18n";
 import { bodyFont, displayFont } from "../../fonts";
@@ -35,6 +37,8 @@ export default async function SiteLayout({
         <DemoBanner text={dict.demoBanner} />
         <Header lang={lang} />
         {children}
+        <Footer lang={lang} />
+        <MobileCtaBar lang={lang} />
         <RevealObserver />
       </body>
     </html>

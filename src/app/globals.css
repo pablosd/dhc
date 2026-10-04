@@ -1864,3 +1864,126 @@ a.line-card:hover {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
+
+/* ---------- Footer y barra móvil (docs/04 §12) ---------- */
+
+.site-footer {
+  --focus-ring: var(--color-glow);
+  padding-block: 56px 40px;
+  background: var(--color-ink-soft);
+  color: var(--color-cream);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 860px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  color: var(--color-stone);
+}
+
+.footer-title {
+  margin-bottom: 0.8rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-glow);
+}
+
+.site-footer ul {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer a {
+  color: var(--color-stone);
+  text-decoration: none;
+}
+
+.site-footer ul a {
+  display: inline-block;
+  padding-block: 0.3rem;
+}
+
+.site-footer a:hover {
+  color: var(--color-cream);
+}
+
+.site-footer .wordmark {
+  color: var(--color-cream);
+}
+
+.footer-nap {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--color-stone);
+  font-style: normal;
+}
+
+.footer-nap a {
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-top: 2.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgb(247 241 232 / 0.1);
+  color: var(--color-stone);
+  font-size: 0.82rem;
+}
+
+.footer-bottom .lang-switch {
+  color: var(--color-cream);
+}
+
+.mobile-cta-bar {
+  --focus-ring: var(--color-glow);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 55;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.6rem 20px calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgb(20 18 16 / 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@media (max-width: 899px) {
+  .mobile-cta-bar {
+    display: grid;
+  }
+
+  /* Que la barra no tape el final del footer. */
+  .site-footer {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+}

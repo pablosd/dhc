@@ -76,7 +76,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T17 · Contacto + `EstimateForm`** — hecho; **pendiente:** clave de Web3Forms con el correo de destino (I2) para la prueba de envío real (`.env.local`, ver `.env.example`)
   Campos y obligatoriedad de `02`, validación nativa con mensajes del diccionario vía `setCustomValidity`, honeypot, `fetch` a `NEXT_PUBLIC_FORM_ENDPOINT` (Web3Forms), estados de enviando/éxito/error, idioma como campo oculto, aviso de consentimiento y `umami.track` en éxito/error. Columna lateral con los dos teléfonos. Verificar los límites del plan gratuito del proveedor.
   **Terminado (además del común):** con el navegador en inglés, los mensajes de validación de `/es/` salen en español. Un envío de prueba llega al correo de destino.
-- [ ] **T18 · Footer + `MobileCtaBar`**
+- [x] **T18 · Footer + `MobileCtaBar`**
 
 **Terminado (para cada T08–T18):** se ve bien entre 360 y 1440 px, se puede usar con teclado, todos los textos salen del diccionario en los dos idiomas, las anclas no quedan tapadas por el header y no hay errores en consola.
 
