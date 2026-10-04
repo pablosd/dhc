@@ -1,0 +1,29 @@
+# DHC Woodcraft & Installation — sitio en Caddy (ver docs/02-arquitectura.md → Hosting).
+# En la VPS: /etc/caddy/sites/dhc.caddy, importado desde el Caddyfile principal
+# (`import sites/*.caddy`). Antes de recargar:
+#   caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
+# Nunca `restart`: la máquina es compartida con TTrack.
+#
+# T04: redirección por idioma en "/". Caché, cabeceras y 404 por idioma: T22/T25.
+
+dhc.psalazar.dev {
+	root * /var/www/dhc/current
+	encode zstd gzip
+
+	# Idioma en "/". Dos matchers con nombre que se excluyen entre sí: un
+	# `redir / /en/` iría antes que el de español (Caddy prioriza los matchers
+	# de solo ruta) y todos acabarían en /en/.
+	@root_es {
+		path /
+		header_regexp Accept-Language ^\s*es(-|;|,|$)
+	}
+	@root_other {
+		path /
+		not header_regexp Accept-Language ^\s*es(-|;|,|$)
+	}
+	redir @root_es /es/ 302
+	redir @root_other /en/ 302
+	header / Vary Accept-Language
+
+	file_server
+}

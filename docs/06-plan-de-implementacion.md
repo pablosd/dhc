@@ -37,7 +37,7 @@ Prompt sugerido para cada sesión de Claude Code:
   `lib/i18n.ts` (locales, `getDictionary`, `htmlLang`, `fill()`), `content/site.ts` (datos confirmados más `// TODO(confirmar) <código>` en el resto, `demoMode: true`, `phones.en` y `phones.es` con `display` y `e164`), y `content/en.ts` + `content/es.ts` con **todos** los textos de `04`. `en.ts` sin `as const` y `export type Dictionary = typeof en`; `es.ts` tipado como `Dictionary`. Los diccionarios usan marcadores (`{phone}`…) en lugar de datos del negocio.
   **Terminado:** si se borra una clave en `es.ts`, falla `tsc`. `fill()` falla en build si falta un valor. Ningún teléfono, correo ni año aparece escrito en los diccionarios.
 
-- [ ] **T04 · Redirección de `/`**
+- [x] **T04 · Redirección de `/`**
   `(root)/page.tsx` con detección de idioma en el cliente, enlaces de respaldo sin JS (textos `root.*`) y `noindex, follow`. Crear `deploy/caddy/dhc.caddy` con la redirección por `Accept-Language` de `02`.
   **Terminado:** con `npx serve out`, abrir `/` con el navegador en español lleva a `/es/`, y en cualquier otro idioma a `/en/`. La config pasa `caddy validate` (en local con `brew install caddy`, o en la VPS).
 

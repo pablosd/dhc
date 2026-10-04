@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dhc-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve@14", "out", "-l", "4173"],
+      "port": 4173
+    },
+    {
+      "name": "dhc-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    }
+  ]
+}
