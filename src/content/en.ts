@@ -45,6 +45,7 @@ const en = {
     flip: "See the after: {title}",
     serviceChips: "Jump to a service",
     cityList: "Cities we serve",
+    breadcrumb: "Breadcrumb",
   },
 
   sample: {
@@ -57,6 +58,7 @@ const en = {
   demoBannerLabel: "Preview notice",
 
   nav: {
+    home: "Home",
     services: "Services",
     about: "Why DHC",
     process: "Process",
@@ -379,6 +381,17 @@ const en = {
   mobileBar: {
     call: "Call",
     estimate: "Free estimate", // TODO D1
+  },
+
+  servicePage: {
+    eyebrow: "Austin, TX · Free estimates", // TODO D1
+    includesTitle: "What's included",
+    materialsTitle: "Materials & styles",
+    processTitle: "How we work",
+    galleryTitle: "Recent projects",
+    faqTitle: "Questions about this service",
+    relatedTitle: "Related services",
+    relatedLink: "See service",
   },
 
   notFound: {

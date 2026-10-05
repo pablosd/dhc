@@ -73,11 +73,12 @@ const nextConfig: NextConfig = {
 │   │   │   ├── not-found.tsx         # para notFound() dentro de [lang]
 │   │   │   ├── page-not-found/page.tsx   # 404 por idioma que sirve Caddy (noindex)
 │   │   │   ├── styleguide/page.dev.tsx  # solo en desarrollo (npm run dev; pageExtensions), noindex
-│   │   │   └── [section]/[service]/page.tsx  # fase 1.5: páginas por servicio
+│   │   │   └── [section]/[service]/page.dev.tsx  # fase 1.5: páginas por servicio (solo en desarrollo hasta publicar la primera; ver su README)
 │   │   ├── sitemap.ts                # force-static, con alternates hreflang
 │   │   └── robots.ts                 # force-static
 │   ├── components/
-│   │   ├── layout/                   # Header, Footer, LanguageSwitch, MobileCtaBar, DemoBanner, SkipLink
+│   │   ├── layout/                   # SiteShell (franja + Header + Footer + barra móvil, por página), Header, Footer,
+│   │   │                             # LanguageSwitch, MobileCtaBar, DemoBanner, SkipLink, Analytics
 │   │   ├── sections/                 # Hero, Marquee, Services, About, Process, Work, Reviews, Areas, Faq, Contact
 │   │   ├── ui/                       # Button, Container, SectionHeading, Icon, Photo, PhotoPlaceholder, WoodGrain,
 │   │   │                             # GlassCard, ServiceChips, ZigZag, BeforeAfterCard, KitchenSvg, AreaMapSvg

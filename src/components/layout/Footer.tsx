@@ -1,15 +1,18 @@
 import { site } from "@/content/site";
+import { serviceHref } from "@/lib/services";
 import { filler, getDictionary, type Locale } from "@/lib/i18n";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { Wordmark } from "./Wordmark";
 
 type Props = {
   lang: Locale;
+  /** Página equivalente en el otro idioma. */
+  alternateHref: string;
 };
 
 // Footer (docs/04 §12): marca, servicios, empresa, NAP y selector de idioma.
 // El NAP debe coincidir con Google Business (docs/05 §5).
-export function Footer({ lang }: Props) {
+export function Footer({ lang, alternateHref }: Props) {
   const dict = getDictionary(lang);
   const t = filler(lang);
   const f = dict.footer;
@@ -44,7 +47,7 @@ export function Footer({ lang }: Props) {
             <ul>
               {site.services.map((id) => (
                 <li key={id}>
-                  <a href={`${home}#service-${id}`}>{dict.services.items[id].short}</a>
+                  <a href={serviceHref(lang, id)}>{dict.services.items[id].short}</a>
                 </li>
               ))}
             </ul>
@@ -78,7 +81,7 @@ export function Footer({ lang }: Props) {
 
         <div className="footer-bottom">
           <p>{copyright}</p>
-          <LanguageSwitch to={other} href={`/${other}/`} text={dict.nav.language} label={dict.a11y.languageSwitch} />
+          <LanguageSwitch to={other} href={alternateHref} text={dict.nav.language} label={dict.a11y.languageSwitch} />
         </div>
       </div>
     </footer>

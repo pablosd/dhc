@@ -109,11 +109,8 @@ Prompt sugerido para cada sesión de Claude Code:
 
 ## Bloque F · Fase 1.5 · Páginas por servicio (tras publicar)
 
-- [ ] **T27 · Rutas de servicio**
-  `(site)/[lang]/[section]/[service]/page.tsx`, mapa de slugs en `lib/i18n.ts` (`05` §8), `generateStaticParams` con solo las combinaciones válidas y `dynamicParams = false`. El selector de idioma enlaza al par traducido.
-  **Terminado:** existen las 16 rutas (o las de los servicios confirmados) en `/out`, y `/en/servicios/…` no se genera.
-- [ ] **T28 · Plantilla de página de servicio**
-  Layout (H1, intro, qué incluye, materiales, proceso, galería, FAQ, CTA), metadata propia, schema `Service` + `BreadcrumbList`, entradas en el sitemap con alternates y enlaces internos desde la landing y el footer.
+- [x] **T27 · Rutas de servicio** — hecho el 5 oct 2026: `(site)/[lang]/[section]/[service]/page.dev.tsx` con slugs traducidos (`content/service-routes.ts`), `generateStaticParams` solo con combinaciones válidas y `dynamicParams = false`; el selector de idioma (vía `SiteShell`) enlaza al par traducido. Verificado en desarrollo: `/en/services/custom-cabinets/` y `/es/servicios/gabinetes-a-medida/` 200, combinaciones cruzadas y servicios sin contenido 404. **Solo en desarrollo** hasta publicar la primera página (ver el `README.md` de esa carpeta).
+- [x] **T28 · Plantilla de página de servicio** — hecho el 5 oct 2026: `components/sections/ServicePage.tsx` (migas, hero, qué incluye + materiales, proceso, galería, preguntas, relacionados, formulario), contenido en `content/service-pages.ts` (borrador de gabinetes para probar, con "[Pendiente T29]"), metadata propia (noindex si es borrador), JSON-LD `Service` + `BreadcrumbList` (+ `FAQPage`) validado contra schema.org, sitemap con `site.servicePages` y enlaces "Ver más" en la landing y el footer cuando la página está publicada. axe sin violaciones a 1440 y 390 px.
 - [ ] **T29 · Contenido de los servicios**
   Redactar EN/ES con las respuestas del cuestionario (`C`, `D5`, `C10`, `K2`) y las fotos reales de cada servicio. Revisión por el dueño y por un hablante nativo.
   **Terminado:** solo se publican las páginas con contenido propio y fotos reales.

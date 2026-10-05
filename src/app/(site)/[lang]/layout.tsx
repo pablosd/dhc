@@ -2,10 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { RevealObserver } from "@/components/client/RevealObserver";
 import { Analytics } from "@/components/layout/Analytics";
-import { DemoBanner } from "@/components/layout/DemoBanner";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
-import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { site } from "@/content/site";
 import { getDictionary, hasLocale, htmlLang, locales } from "@/lib/i18n";
@@ -48,11 +44,7 @@ export default async function SiteLayout({
         {/* Marca .js antes de pintar: las animaciones solo ocultan contenido con JS. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <SkipLink label={dict.a11y.skipLink} />
-        <DemoBanner text={dict.demoBanner} label={dict.demoBannerLabel} />
-        <Header lang={lang} />
         {children}
-        <Footer lang={lang} />
-        <MobileCtaBar lang={lang} />
         <RevealObserver />
         <Analytics />
       </body>

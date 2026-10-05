@@ -7,11 +7,13 @@ import { Wordmark } from "./Wordmark";
 
 type Props = {
   lang: Locale;
+  /** Página equivalente en el otro idioma. */
+  alternateHref: string;
 };
 
 // Header fijo (docs/03): transparente sobre el hero, sólido al bajar o en
 // páginas sin hero. Menú en el orden de la página (docs/04 → Header).
-export function Header({ lang }: Props) {
+export function Header({ lang, alternateHref }: Props) {
   const dict = getDictionary(lang);
   const t = filler(lang);
   const other: Locale = lang === "en" ? "es" : "en";
@@ -50,7 +52,7 @@ export function Header({ lang }: Props) {
         </a>
         <LanguageSwitch
           to={other}
-          href={`/${other}/`}
+          href={alternateHref}
           text={dict.nav.language}
           label={dict.a11y.languageSwitch}
           className="site-lang"
@@ -64,7 +66,7 @@ export function Header({ lang }: Props) {
           links={links}
           cta={cta}
           phone={{ href: `tel:${phone.e164}`, label: phone.display, ariaLabel: phoneAria, event: callEvent }}
-          language={{ href: `/${other}/`, text: dict.nav.language, label: dict.a11y.languageSwitch, lang: htmlLang[other] }}
+          language={{ href: alternateHref, text: dict.nav.language, label: dict.a11y.languageSwitch, lang: htmlLang[other] }}
         />
       </div>
       <HeaderScroll />

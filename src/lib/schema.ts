@@ -1,6 +1,9 @@
 import { site } from "@/content/site";
 import { getFaqItems } from "@/lib/faq";
-import { getDictionary, htmlLang, type Locale } from "@/lib/i18n";
+import type { ServicePageContent } from "@/content/service-pages";
+import type { ServiceId } from "@/content/site";
+import { filler, getDictionary, htmlLang, type Locale } from "@/lib/i18n";
+import { servicePaths } from "@/lib/services";
 
 // JSON-LD (docs/05 §3). Un campo sin dato confirmado se OMITE: nunca se
 // rellena con un valor de ejemplo. Sin geo, priceRange, aggregateRating ni
@@ -89,6 +92,43 @@ export function landingGraph(lang: Locale): Json {
     "@context": "https://schema.org",
     "@graph": [businessSchema(lang), websiteSchema(lang), faqSchema(lang)].filter(Boolean),
   };
+}
+
+/** Página de servicio (fase 1.5): Service + BreadcrumbList (+ FAQPage). */
+export function serviceGraph(lang: Locale, id: ServiceId, content: ServicePageContent): Json {
+  const dict = getDictionary(lang);
+  const t = filler(lang);
+  const url = `${site.url}${servicePaths(id)[lang]}`;
+  const faqs = content.faqs.filter((f) => f.question && f.answer && !f.answer.startsWith("[Pendiente"));
+  const graph: (Json | null)[] = [
+    businessSchema(lang),
+    {
+      "@type": "Service",
+      "@id": `${url}#service`,
+      name: dict.services.items[id].title,
+      description: content.intro[0],
+      url,
+      serviceType: dict.services.items[id].title,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: site.areas.served.map((name) => ({ "@type": "City", name: `${name}, TX` })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: dict.nav.home, item: `${site.url}/${lang}/` },
+        { "@type": "ListItem", position: 2, name: dict.nav.services, item: `${site.url}/${lang}/#${dict.anchors.services}` },
+        { "@type": "ListItem", position: 3, name: dict.services.items[id].title, item: url },
+      ],
+    },
+    faqs.length
+      ? {
+          "@type": "FAQPage",
+          inLanguage: htmlLang[lang],
+          mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: t(f.answer) } })),
+        }
+      : null,
+  ];
+  return { "@context": "https://schema.org", "@graph": graph.filter(Boolean) };
 }
 
 /** Serializa para <script type="application/ld+json"> sin permitir cerrar la etiqueta. */

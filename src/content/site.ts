@@ -52,6 +52,13 @@ export const site = {
 
   hours: null as string | null, // TODO(confirmar) B5
 
+  /**
+   * Páginas por servicio publicadas (fase 1.5). Solo servicios con contenido
+   * propio y fotos reales (docs/05 §8). Vacío = ninguna. Para publicar la
+   * primera, ver src/app/(site)/[lang]/[section]/[service]/README.md.
+   */
+  servicePages: [] as ServiceId[], // TODO T29
+
   /** Servicios que se muestran, en este orden. */
   services: [...serviceIds] as ServiceId[], // TODO(confirmar) C1–C3
 

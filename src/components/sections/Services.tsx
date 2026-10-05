@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { serviceIcons } from "@/components/ui/serviceIcons";
 import { site } from "@/content/site";
 import { getDictionary, type Locale } from "@/lib/i18n";
+import { isServicePagePublished, servicePaths } from "@/lib/services";
 
 type Props = {
   lang: Locale;
@@ -49,6 +50,11 @@ export function Services({ lang }: Props) {
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
+                {isServicePagePublished(svc.id) ? (
+                  <a href={servicePaths(svc.id)[lang]} className="service-more">
+                    {s.learnMore}
+                  </a>
+                ) : null}
               </article>
             </li>
           ))}

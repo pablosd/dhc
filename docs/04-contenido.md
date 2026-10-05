@@ -380,4 +380,21 @@ Cada página necesita contenido propio, **no** el de la tarjeta de la landing:
 - H1 con servicio + ciudad (p. ej. *Custom Cabinets in Austin, TX* / *Gabinetes a medida en Austin, TX*).
 - Introducción, qué incluye, materiales y estilos (`C10`), proceso específico, plazos típicos (`D5`), 3–5 preguntas frecuentes del servicio, galería con fotos reales del servicio (`H1`) y CTA.
 - Entre 500 y 900 palabras útiles por idioma.
-- Los textos se redactan en T29, cuando haya respuestas del cuestionario.
+- Los textos se redactan en T29, cuando haya respuestas del cuestionario, en `src/content/service-pages.ts` (uno por servicio e idioma).
+
+Textos fijos de la plantilla (diccionarios):
+
+| Clave | EN | ES |
+|---|---|---|
+| nav.home | Home | Inicio |
+| a11y.breadcrumb | Breadcrumb | Ruta de navegación |
+| servicePage.eyebrow **[TODO D1]** | Austin, TX · Free estimates | Austin, TX · Estimados gratis |
+| servicePage.includesTitle | What's included | Qué incluye |
+| servicePage.materialsTitle | Materials & styles | Materiales y estilos |
+| servicePage.processTitle | How we work | Cómo trabajamos |
+| servicePage.galleryTitle | Recent projects | Proyectos recientes |
+| servicePage.faqTitle | Questions about this service | Preguntas sobre este servicio |
+| servicePage.relatedTitle | Related services | Servicios relacionados |
+| servicePage.relatedLink | See service | Ver servicio |
+
+Estructura de la página: migas de pan → hero (H1, introducción, CTA, foto) → qué incluye + materiales → cómo trabajamos (los 4 pasos) → galería → preguntas del servicio → servicios relacionados → formulario de estimado.

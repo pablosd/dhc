@@ -10,6 +10,7 @@ import { Reviews } from "@/components/sections/Reviews";
 import { Services } from "@/components/sections/Services";
 import { Work } from "@/components/sections/Work";
 import { Marquee } from "@/components/ui/Marquee";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 import { jsonLd, landingGraph } from "@/lib/schema";
 import { landingPaths, pageMetadata } from "@/lib/seo";
@@ -27,18 +28,20 @@ export default async function LandingPage({ params }: PageProps<"/[lang]">) {
   const dict = getDictionary(lang);
 
   return (
-    <main id="main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(landingGraph(lang)) }} />
-      <Hero lang={lang} />
-      <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
-      <Services lang={lang} />
-      <About lang={lang} />
-      <Process lang={lang} />
-      <Work lang={lang} />
-      <Reviews lang={lang} />
-      <Areas lang={lang} />
-      <Faq lang={lang} />
-      <Contact lang={lang} />
-    </main>
+    <SiteShell lang={lang}>
+      <main id="main">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(landingGraph(lang)) }} />
+        <Hero lang={lang} />
+        <Marquee items={dict.marquee} pauseLabel={dict.a11y.marqueePause} />
+        <Services lang={lang} />
+        <About lang={lang} />
+        <Process lang={lang} />
+        <Work lang={lang} />
+        <Reviews lang={lang} />
+        <Areas lang={lang} />
+        <Faq lang={lang} />
+        <Contact lang={lang} />
+      </main>
+    </SiteShell>
   );
 }

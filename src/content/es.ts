@@ -43,6 +43,7 @@ const es: Dictionary = {
     flip: "Ver el después: {title}",
     serviceChips: "Ir a un servicio",
     cityList: "Ciudades que atendemos",
+    breadcrumb: "Ruta de navegación",
   },
 
   sample: {
@@ -55,6 +56,7 @@ const es: Dictionary = {
   demoBannerLabel: "Aviso de vista previa",
 
   nav: {
+    home: "Inicio",
     services: "Servicios",
     about: "Nosotros",
     process: "Proceso",
@@ -376,6 +378,17 @@ const es: Dictionary = {
   mobileBar: {
     call: "Llamar",
     estimate: "Estimado gratis", // TODO D1
+  },
+
+  servicePage: {
+    eyebrow: "Austin, TX · Estimados gratis", // TODO D1
+    includesTitle: "Qué incluye",
+    materialsTitle: "Materiales y estilos",
+    processTitle: "Cómo trabajamos",
+    galleryTitle: "Proyectos recientes",
+    faqTitle: "Preguntas sobre este servicio",
+    relatedTitle: "Servicios relacionados",
+    relatedLink: "Ver servicio",
   },
 
   notFound: {

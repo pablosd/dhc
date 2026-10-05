@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { NotFoundContent } from "@/components/sections/NotFoundContent";
 import { getDictionary, hasLocale } from "@/lib/i18n";
 
@@ -15,8 +16,10 @@ export default async function PageNotFound({ params }: PageProps<"/[lang]/page-n
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   return (
-    <main id="main" className="not-found-page surface-dark">
-      <NotFoundContent lang={lang} />
-    </main>
+    <SiteShell lang={lang}>
+      <main id="main" className="not-found-page surface-dark">
+        <NotFoundContent lang={lang} />
+      </main>
+    </SiteShell>
   );
 }

@@ -184,7 +184,7 @@ Ruta: `(site)/[lang]/[section]/[service]/page.tsx`. `generateStaticParams` devue
 | `framing` | `/en/services/framing/` | `/es/servicios/framing/` | framing contractor Austin / framing Austin |
 | `general` | `/en/services/general-carpentry/` | `/es/servicios/carpinteria-general/` | carpenter Austin / carpintero en Austin |
 
-Solo se publican las páginas de los servicios confirmados en `C1`.
+Solo se publican las páginas de los servicios confirmados en `C1` y listados en `site.servicePages`. Implementado en T27–T28 (`content/service-routes.ts`, `content/service-pages.ts`, `lib/services.ts`); pasos para publicar en `src/app/(site)/[lang]/[section]/[service]/README.md`.
 
 ### Requisitos por página
 

@@ -2,13 +2,14 @@ import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { locales } from "@/lib/i18n";
 import { landingPaths, languageAlternates, type LocalizedPaths } from "@/lib/seo";
+import { servicePaths } from "@/lib/services";
 
 // Export estático: se genera una vez en el build (docs/02, docs/05 §4).
 export const dynamic = "force-static";
 
-// Páginas indexables. Excluidas: "/", page-not-found y styleguide.
-// Fase 1.5: añadir aquí las páginas de servicio con sus rutas traducidas.
-const pages: LocalizedPaths[] = [landingPaths];
+// Páginas indexables: la landing y las páginas de servicio publicadas
+// (site.servicePages). Excluidas: "/", page-not-found, styleguide y cuestionario.
+const pages: LocalizedPaths[] = [landingPaths, ...site.servicePages.map(servicePaths)];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const abs = (path: string) => new URL(path, site.url).toString();
