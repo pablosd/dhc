@@ -67,6 +67,7 @@ Sigue siendo 100 % estático (no necesita servidor):
 - Sistema de citas para estimados a domicilio (calendario y confirmaciones).
 - Chatbot de atención bilingüe.
 - Posibles páginas por ciudad para ampliar el SEO local.
+- **Panel para editar contenido** (idea del 5 oct 2026, pospuesta): decidir tras unos meses en producción, según cuántas veces cambie el contenido y si el dueño quiere editar él mismo. Si hace falta, la recomendación es un CMS sobre git (Decap, Keystatic o TinaCMS) limitado a galería, reseñas y preguntas frecuentes: unos 2–3 días, el sitio sigue estático y no añade servicios a la VPS. Alternativas descartadas por ahora: CMS alojado (4–7 días, dependencia externa) y panel propio con servidor (2–4 semanas, carga y mantenimiento en la VPS de TTrack).
 
 La arquitectura de las fases 1 y 1.5 debe permitir la fase 2 **sin reescribir componentes** (ver `02-arquitectura.md`).
 
