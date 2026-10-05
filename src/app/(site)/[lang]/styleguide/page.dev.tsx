@@ -11,6 +11,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { Icon, iconNames } from "@/components/ui/Icon";
 import { PhotoPlaceholder } from "@/components/ui/PhotoPlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import images from "@/content/images.json";
 import { Marquee } from "@/components/ui/Marquee";
 import { Carousel } from "@/components/client/Carousel";
 import { filler } from "@/lib/i18n";
@@ -42,6 +43,8 @@ const contrast = [
   ["glow sobre ink", "10.4", "Acentos sobre oscuro"],
   ["oak sobre cream", "3.7", "Solo texto ≥ 24 px o decoración"],
 ];
+
+const firstPhoto = Object.keys(images)[0];
 
 const sample =
   "Gabinetes de cocina, baño y clóset hechos a la medida e instalados con precisión. Te visitamos, escuchamos lo que quieres y tomamos medidas precisas: ¿cocina nueva, techo de madera o molduras? Respondemos en inglés y español.";
@@ -188,7 +191,11 @@ export default async function StyleguidePage({ params }: { params: Promise<{ lan
           <p className="eyebrow">PhotoPlaceholder · sin foto y con foto (Photo + srcset)</p>
           <div className="grid gap-6 md:grid-cols-2">
             <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} />
-            <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} photo={{ name: "styleguide-test", alt: "Imagen de prueba de la styleguide", sizes: "(min-width: 768px) 50vw, 100vw" }} />
+            {firstPhoto ? (
+              <PhotoPlaceholder icon="cabinet" label={dict.sample.photo} photo={{ name: firstPhoto, alt: "Primera foto del manifiesto", sizes: "(min-width: 768px) 50vw, 100vw" }} />
+            ) : (
+              <p className="text-sm text-muted">Sin fotos todavía: cuando haya fotos reales (scripts/optimize-images.mjs), aquí se verá la primera con su srcset.</p>
+            )}
           </div>
         </div>
       </section>
