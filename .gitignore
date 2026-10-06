@@ -25,3 +25,7 @@ next-env.d.ts
 # editores
 .idea/
 .vscode/
+
+# auditoría (vocabulario descargado y capturas)
+/scripts/audit/.cache/
+/scripts/audit/.out/

@@ -47,9 +47,18 @@ npm run dev      # desarrollo
 npm run build    # genera /out (export estático)
 npm run lint
 npx serve out    # previsualizar el build estático
+npm run qa       # auditoría del build (maquetación, axe, JSON-LD, interacciones); `npm run qa -- a11y` para uno solo
+npm run qa:prod  # la misma auditoría contra https://dhc.psalazar.dev (Umami bloqueado, formulario simulado)
 node scripts/optimize-images.mjs   # assets/photos → public/images (AVIF/WebP)
 ./deploy/deploy.sh                 # build + rsync a la VPS
+./deploy/smoke.sh                  # chequeo de humo tras desplegar (DHC + que TTrack siga intacto)
 ```
+
+## Automatizaciones de Claude Code (`.claude/`)
+
+- **Hooks** (`settings.json`): bloquean editar a mano `.env*`, `out/`, `node_modules/`, `package-lock.json` y `src/content/area-map.ts` (se genera con `npm run geo`); pasan ESLint a cada `src/**/*.ts(x)` editado.
+- **Skills** (solo las invoca Pablo): `/deploy` (publicar y comprobar) y `/aplicar-cuestionario` (volcar las respuestas del dueño).
+- **Subagentes:** `guardian-contenido` (reglas de contenido, EN/ES, nada falso) y `auditor-a11y-rendimiento` (axe, Lighthouse, JS mínimo).
 
 ## Datos clave del negocio
 
