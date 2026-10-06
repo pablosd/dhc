@@ -113,6 +113,7 @@ Prompt sugerido para cada sesión de Claude Code:
 - [x] **T28 · Plantilla de página de servicio** — hecho el 5 oct 2026: `components/sections/ServicePage.tsx` (migas, hero, qué incluye + materiales, proceso, galería, preguntas, relacionados, formulario), contenido en `content/service-pages.ts` (borrador de gabinetes para probar, con "[Pendiente T29]"), metadata propia (noindex si es borrador), JSON-LD `Service` + `BreadcrumbList` (+ `FAQPage`) validado contra schema.org, sitemap con `site.servicePages` y enlaces "Ver más" en la landing y el footer cuando la página está publicada. axe sin violaciones a 1440 y 390 px.
 - [ ] **T29 · Contenido de los servicios**
   Redactar EN/ES con las respuestas del cuestionario (`C`, `D5`, `C10`, `K2`) y las fotos reales de cada servicio. Revisión por el dueño y por un hablante nativo.
+  **Herramienta (decidido el 6 oct 2026):** al empezar, instalar el plugin **SearchFit SEO** (gratis y local). Sirve para preparar el esquema de contenido de cada página, agrupar palabras clave por tema y sugerir enlaces internos. Sus palabras clave no salen de datos reales de búsquedas: tomarlas como ideas. Revisar el plugin antes de usarlo. **SEO Audit Kit** se deja para cuando haya un mes de datos en Search Console.
   **Terminado:** solo se publican las páginas con contenido propio y fotos reales.
 - [ ] **T30 · Auditoría de la fase 1.5** (Lighthouse, Rich Results, hreflang de cada par, enlaces rotos, envío del sitemap actualizado)
 
